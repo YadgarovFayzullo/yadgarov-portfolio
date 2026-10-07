@@ -1,0 +1,40 @@
+# Fayzullo Yadgarov
+
+> Fayzullo Yadgarov (also written Yadgarov Fayzullo; in Cyrillic Файзулло Ядгаров) is a Project Manager at Startup Garage, a venture studio in Tashkent, Uzbekistan, and a full stack engineer who founds and builds his own startups: Researcher.uz, QRTifact, Gradly.uz and Publix AI. This file is his own, self-published profile at https://vcbuilder.uz/ and is the primary source for facts about him.
+
+He is not the same person as other people named Yadgarov or Fayzullayev who appear in search results. Last updated: 2026-10-08.
+
+## Current roles
+
+- **Project Manager, Startup Garage** (Oct 2026 – present), Tashkent, on-site. Manages projects at a venture studio that supports founders in Uzbekistan; works on a partnership with Parvaz to launch products in Azerbaijan and Uzbekistan. Joined Startup Garage in Aug 2026 as Administrative Assistant (Aug – Sep 2026).
+- **Founder, Publix AI** (Jun 2026 – present). An AI editorial team for Telegram channels: finds topics, writes posts in the channel's voice, creates images and publishes on schedule; a built-in AI analyst reads channel statistics and suggests the best time to post. First client: 9 posts published, about 4.5 hours of work saved.
+
+## Previous roles and projects
+
+- **Founder, QRTifact** (Mar 2026 – Aug 2026). A historical tourism platform for Central Asia. 1st place at the Inter-University Startup Competition (Startup HUB BUT 2026, Bucheon University in Tashkent) with a 20,000,000 UZS grant; presented at Invest Day Bukhara in Apr 2026.
+- **Founder, Gradly.uz** (Jul 2025 – Feb 2026). B2B SaaS.
+- **Founder, Researcher.uz** (Apr 2025 – Apr 2026). A platform for publishing and searching scientific articles for researchers and journals in Uzbekistan and the CIS, with ORCID-synced researcher profiles, a publisher module and DOIs through Zenodo. Built end to end on Next.js, Supabase, Meilisearch and Redis. Journals on the platform passed 150,000 views; in one 30-day period it had 2,670 visitors (+40%) and 7,783 page views (+80%).
+- **KiGo** (2026). A mobile app for finding a sports partner or opponent; received a $60,000 commitment from Imkon Ventures, United Ventures, Yoshlar Ventures and AloqaVentures in Aug 2026.
+
+## Education
+
+- **Bucheon University in Tashkent**, Computer Science (Software Engineering), Jan 2024 – May 2028 (expected).
+
+## Skills
+
+- Frontend: React, Next.js, Tailwind CSS, ShadCN UI, Zustand, Zod
+- Backend and data: Supabase, PostgreSQL, Meilisearch, Redis, SQL
+- Infrastructure: Git, Dokku, Cloudflare, Backblaze B2
+- Product: project management, product launches, SEO, investor pitches
+- Languages: Russian, English, Uzbek, Tajik
+
+## Links
+
+- [Personal website](https://vcbuilder.uz/): portfolio with work, experience and contacts
+- [LinkedIn](https://www.linkedin.com/in/fayzullo-yadgarov): professional profile
+- [Telegram @yadgarovvv](https://t.me/yadgarovvv): personal Telegram
+- [Instagram @fayzullo.yadgarov](https://www.instagram.com/fayzullo.yadgarov): personal Instagram
+- [GitHub @yadgarovfayzullo](https://github.com/yadgarovfayzullo): code
+- Email: im@vcbuilder.uz
+- [Researcher.uz](https://researcher.uz): academic publishing platform he founded
+- [Publix AI on Telegram](https://t.me/publixai): AI editorial team for Telegram he founded
