@@ -1,0 +1,685 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fayzullo Yadgarov — Project Manager, Full Stack Engineer</title>
+<meta name="description" content="Fayzullo Yadgarov (Файзулло Ядгаров) — Project Manager at Startup Garage, full stack engineer, founder of Researcher.uz and QRTifact. Tashkent, Uzbekistan.">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Fayzullo Yadgarov",
+  "alternateName": ["Yadgarov Fayzullo", "Файзулло Ядгаров"],
+  "jobTitle": "Project Manager",
+  "worksFor": { "@type": "Organization", "name": "Startup Garage" },
+  "alumniOf": { "@type": "CollegeOrUniversity", "name": "Bucheon University in Tashkent" },
+  "address": { "@type": "PostalAddress", "addressLocality": "Tashkent", "addressCountry": "UZ" },
+  "sameAs": ["https://www.linkedin.com/in/fayzullo-yadgarov"]
+}
+</script>
+<style>
+@font-face {
+  font-family: "ABC Diatype";
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+  src: url("fonts/ABCDiatype-Light.otf") format("opentype");
+}
+@font-face {
+  font-family: "ABC Diatype";
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url("fonts/ABCDiatype-Regular.otf") format("opentype");
+}
+@font-face {
+  font-family: "ABC Diatype";
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  src: url("fonts/ABCDiatype-Medium.otf") format("opentype");
+}
+@font-face {
+  font-family: "ABC Diatype";
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url("fonts/ABCDiatype-Bold.otf") format("opentype");
+}
+@font-face {
+  font-family: "ABC Diatype";
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+  src: url("fonts/ABCDiatype-Black.otf") format("opentype");
+}
+:root {
+  --bg: #fafaf8;
+  --fg: #1a1a18;
+  --muted: #6b6b66;
+  --line: #e2e2dc;
+  --card: #ffffff;
+  --accent: #1a1a18;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #131312;
+    --fg: #ece9e6;
+    --muted: #9a9a92;
+    --line: #2a2a27;
+    --card: #1a1a18;
+    --accent: #ece9e6;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #131312;
+  --fg: #ece9e6;
+  --muted: #9a9a92;
+  --line: #2a2a27;
+  --card: #1a1a18;
+  --accent: #ece9e6;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: #e72604;
+  color: #000000;
+  font-family: "ABC Diatype", "Satoshi", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color .5s cubic-bezier(.45,0,.7,.35), color .5s cubic-bezier(.45,0,.7,.35);
+}
+h1, h2, h3, h4, p, ul { font-weight: inherit; }
+/* every link is underlined; on hover the line turns the header's red */
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: .06em;
+  text-underline-offset: .14em;
+  text-decoration-color: currentColor;
+  transition: color .25s ease, text-decoration-color .25s ease;
+}
+a:hover { color: #e72604; text-decoration-color: #e72604; }
+.big a, a.big { text-decoration-thickness: max(2px, .025em); }
+.wrap { padding: 0 20px; }
+
+/* shared type: big, tight, sentence case — the caps stay in the header only */
+.big { font-weight: 500; letter-spacing: -0.035em; line-height: .95; }
+.label { font-size: 15px; font-weight: 500; line-height: 1.3; color: var(--muted); }
+.masthead p { font-weight: 700; }
+
+/* nav */
+.masthead {
+  height: 100vh;
+  height: 100svh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 0 20px;
+}
+.masthead a { border: 0; }
+.mast-center { flex: 1 1 auto; min-height: 0; position: relative; display: flex; justify-content: center; padding-top: 0; overflow: hidden; }
+.mast-center h1 { line-height: 0; padding-top: 18px; }
+.mast-center .logo { display: block; width: 100%; height: auto; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.mast-bottom {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  text-align: center;
+  padding: 0 0 clamp(16px, 2.5vw, 56px);
+  font-family: "ABC Diatype", "Satoshi", system-ui, sans-serif;
+  font-size: clamp(22px, 3.9vw, 88px);
+  font-weight: 700;
+  line-height: .86;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+/* sections */
+section { padding-top: clamp(96px, 13vw, 220px); }
+.sec-title { font-size: clamp(56px, 10vw, 220px); margin-bottom: clamp(40px, 5vw, 96px); }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+@media (max-width: 760px) { .grid2 { grid-template-columns: 1fr; } }
+
+/* about */
+.statement { font-size: clamp(34px, 5.4vw, 120px); max-width: 15ch; margin-bottom: clamp(40px, 6vw, 110px); }
+.about-cols p { max-width: 520px; }
+
+/* numbers */
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+@media (max-width: 760px) { .stats { grid-template-columns: 1fr 1fr; row-gap: 48px; } }
+.stat .n { font-size: clamp(52px, 7vw, 160px); margin-bottom: 14px; font-variant-numeric: tabular-nums; }
+.stat .label { max-width: 240px; }
+
+/* work */
+
+/* partners: one row of single-colour logos that follow the text colour */
+#partners { padding-top: clamp(64px, 8vw, 120px); }
+.logos-row { display: grid; grid-template-columns: 240px 1fr; gap: 20px; align-items: center; }
+.logos { display: flex; flex-wrap: wrap; align-items: center; gap: 32px 64px; }
+.partner-logo { height: clamp(30px, 3vw, 46px); width: auto; display: block; }
+@media (max-width: 760px) { .logos-row { grid-template-columns: 1fr; gap: 16px; } }
+
+/* work: one project per screen; each panel sticks to the top and the next one slides up over it */
+.proj {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  margin: 0 -20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--bg);
+  color: var(--fg);
+}
+.proj:nth-of-type(even) { background: #e72604; color: #000; }
+.proj:nth-of-type(even) .label { color: rgba(0, 0, 0, .6); }
+.proj:nth-of-type(even) a:hover { color: var(--bg); text-decoration-color: var(--bg); }
+.proj-top { display: flex; justify-content: space-between; gap: 20px; }
+.proj-main { display: grid; grid-template-columns: 1fr minmax(260px, 440px); gap: 20px; align-items: end; }
+.proj h3 { font-size: clamp(60px, 11vw, 260px); }
+.proj .stack { margin-top: 14px; }
+@media (max-width: 760px) { .proj-main { grid-template-columns: 1fr; gap: 24px; } }
+
+/* experience */
+.job { display: grid; grid-template-columns: 240px 1fr; gap: 20px; padding-bottom: clamp(40px, 4.5vw, 72px); }
+.job:last-child { padding-bottom: 0; }
+.job h3 { font-size: clamp(30px, 3.8vw, 80px); }
+.job .label { padding-top: .5em; }
+.job .org { margin-top: 10px; }
+.job p { margin-top: 12px; max-width: 640px; }
+/* roles inside one company, LinkedIn-style: a dot per role, joined by a thin vertical line */
+.roles { --rs: clamp(22px, 2.2vw, 40px); list-style: none; margin-top: 28px; }
+.roles li { position: relative; padding: 0 0 28px 30px; }
+.roles li:last-child { padding-bottom: 0; }
+.roles li::before { content: ""; position: absolute; left: 0; top: calc(var(--rs) * .55 - 5px); width: 10px; height: 10px; border-radius: 50%; background: currentColor; }
+.roles li:not(:last-child)::after { content: ""; position: absolute; left: 4px; width: 2px; top: calc(var(--rs) * .55 + 10px); bottom: calc(10px - var(--rs) * .55); background: currentColor; opacity: .25; }
+.role-name { font-size: var(--rs); font-weight: 500; letter-spacing: -0.02em; line-height: 1.1; }
+.roles .label { padding-top: 6px; }
+.roles p { margin-top: 10px; }
+@media (max-width: 760px) { .job { grid-template-columns: 1fr; gap: 6px; } .job .label { padding-top: 0; } }
+
+/* hover trail: small photos drop along the cursor path over an experience entry (mouse devices only) */
+.trail { position: fixed; inset: 0; pointer-events: none; z-index: 50; overflow: hidden; }
+.trail img { position: absolute; width: clamp(110px, 10vw, 170px); aspect-ratio: 4 / 5; object-fit: cover; display: block; }
+@media (hover: none), (pointer: coarse) { .trail { display: none; } }
+
+/* skills */
+.skill { display: grid; grid-template-columns: 240px 1fr; gap: 20px; padding-bottom: clamp(28px, 3vw, 48px); }
+.skill:last-child { padding-bottom: 0; }
+.skill p { font-size: clamp(30px, 3.8vw, 80px); }
+.skill .label { padding-top: .5em; }
+@media (max-width: 760px) { .skill { grid-template-columns: 1fr; gap: 6px; } .skill .label { padding-top: 0; } }
+
+/* recognition */
+.ach { list-style: none; }
+.ach li { display: grid; grid-template-columns: 240px 1fr; gap: 20px; padding-bottom: clamp(28px, 3vw, 48px); }
+.ach li:last-child { padding-bottom: 0; }
+.ach .big { font-size: clamp(26px, 3vw, 64px); max-width: 24ch; }
+.ach .label { padding-top: .4em; }
+@media (max-width: 760px) { .ach li { grid-template-columns: 1fr; gap: 6px; } .ach .label { padding-top: 0; } }
+
+/* contact */
+.contact-list { list-style: none; }
+.contact-list li { display: grid; grid-template-columns: 240px 1fr; gap: 20px; padding-bottom: 18px; }
+.contact-list a { font-size: clamp(30px, 4.6vw, 100px); overflow-wrap: anywhere; }
+.contact-list .label { padding-top: .6em; }
+@media (max-width: 760px) { .contact-list li { grid-template-columns: 1fr; gap: 2px; } .contact-list .label { padding-top: 0; } }
+
+/* footer */
+footer { padding: clamp(96px, 13vw, 220px) 0 24px; }
+.foot { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; }
+.theme-btn { font: inherit; font-size: 15px; color: var(--muted); background: none; border: 0; padding: 0; cursor: pointer; }
+.theme-btn:hover { color: var(--fg); text-decoration: underline; text-underline-offset: .14em; }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="mast-center">
+    <h1>
+      <span class="sr-only">FAYZ — Fayzullo Yadgarov</span>
+      <svg class="logo" viewBox="0 0 4390 1000" fill="currentColor" aria-hidden="true">
+        <path d="M0 0H1000V300H450V440H880V700H450V1000H0Z"/>
+        <path fill-rule="evenodd" d="M1140 0H1810L2130 1000H1690L1645 850H1305L1260 1000H820ZM1475 260L1370 620H1580Z"/>
+        <path d="M1950 0H2400L2575 250L2750 0H3200L2800 560V1000H2350V560Z"/>
+        <path d="M3340 0H4390V300L3940 700H4390V1000H3340V700L3790 300H3340Z"/>
+      </svg>
+    </h1>
+  </div>
+  <div class="mast-bottom">
+    <p>From Code<br>to Capital</p>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap">
+
+    <section id="about">
+      <p class="big statement">I build products from the first line of code to the first investor.</p>
+      <div class="grid2 about-cols">
+        <p>Full stack developer working with React, Next.js and Tailwind CSS. I like building clean, scalable web applications. I study Computer Science at Bucheon University in Tashkent and launch my own products on the side.</p>
+        <p>I work with Git, Dokku, API integrations and performance optimization. Right now I run projects at Startup Garage and keep growing Researcher.uz, QRTifact and KiGo.</p>
+      </div>    </section>
+
+    <section id="numbers">
+      <div class="stats">
+        <div class="stat"><div class="big n" data-to="150" data-prefix="" data-suffix="K+">150K+</div><div class="label">Journal views on Researcher.uz</div></div>
+        <div class="stat"><div class="big n" data-to="60" data-prefix="$" data-suffix="K">$60K</div><div class="label">Investor commitment in KiGo</div></div>
+        <div class="stat"><div class="big n" data-to="20" data-prefix="" data-suffix="M">20M</div><div class="label">UZS grant for 1st place, QRTifact</div></div>
+        <div class="stat"><div class="big n" data-to="500" data-prefix="~" data-suffix="">~500</div><div class="label">Startups in the Startup Garage ecosystem</div></div>
+      </div>
+    </section>
+
+    <section id="partners">
+      <div class="logos-row">
+        <div class="label">Worked with</div>
+        <div class="logos">
+          <svg class="partner-logo" role="img" aria-label="Startup Garage" viewBox="0 0 1181 409" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M519.658 94.3256C519.658 88.6372 517.488 83.6645 513.204 79.4264C508.92 75.2259 502.824 73.0975 495.029 73.0975C488.405 73.0975 483.196 74.5102 479.327 77.2979C475.458 80.0856 473.571 83.8528 473.571 88.6372C473.571 91.0858 474.024 93.3085 474.949 95.2674C475.873 97.2452 477.497 98.9969 479.818 100.579C482.158 102.161 485.197 103.536 488.952 104.78C492.746 106.023 497.539 107.172 503.371 108.245C517.96 110.977 529.038 115.516 536.757 121.901C544.419 128.287 548.251 137.743 548.251 150.287V152.736C548.251 159.423 547.08 165.413 544.797 170.8C542.456 176.187 539.135 180.783 534.757 184.588C530.378 188.392 525.094 191.312 518.884 193.365C512.675 195.418 505.636 196.398 497.841 196.398C488.707 196.398 480.667 195.079 473.703 192.423C466.739 189.768 460.945 186.094 456.321 181.423C451.697 176.752 448.187 171.233 445.771 164.904C443.393 158.575 442.186 151.681 442.186 144.184V138.063H468.4V142.941C468.4 151.512 470.816 158.349 475.647 163.454C480.479 168.558 487.99 171.12 498.2 171.12C506.164 171.12 512.034 169.368 515.865 165.808C519.696 162.248 521.621 158.067 521.621 153.169C521.621 150.852 521.206 148.63 520.413 146.539C519.621 144.448 518.205 142.508 516.242 140.85C514.242 139.136 511.524 137.648 508.108 136.273C504.654 134.898 500.276 133.749 494.973 132.808C487.971 131.564 481.516 129.982 475.722 128.004C469.891 126.027 464.852 123.427 460.511 120.169C456.227 116.91 452.886 112.804 450.471 107.925C448.093 103.047 446.885 97.0568 446.885 89.9933V88.7502C446.885 82.8922 448.055 77.4863 450.339 72.5136C452.679 67.5409 455.887 63.2274 460.096 59.5356C464.267 55.8626 469.306 52.9807 475.175 50.9652C481.045 48.9121 487.631 47.9326 494.935 47.9326C503.145 47.9326 510.429 49.1381 516.771 51.4926C523.15 53.8848 528.434 57.1057 532.775 61.1743C537.059 65.2429 540.324 69.9519 542.475 75.2636C544.684 80.5754 545.759 86.132 545.759 92.0088V99.3737H519.545V94.4951L519.621 94.3633L519.658 94.3256Z" fill="currentColor"/>
+<path d="M552.057 50.6562H652.158V76.3862H615.243V193.527H589.028V76.3862H552.113V50.6562H552.076H552.057Z" fill="currentColor"/>
+<path d="M723.237 162.881H675.979L669.223 193.489H641.801L674.979 50.6562H724.237L757.415 193.489H729.993L723.237 162.881ZM681.509 137.189H717.48L701.401 64.1428H697.815L681.528 137.189H681.509Z" fill="currentColor"/>
+<path d="M855.868 193.489H829.653V150.638C829.653 147.379 828.823 144.723 827.181 142.67C825.52 140.617 822.765 139.637 818.933 139.637H788.775V193.508H762.561V50.6562H815.782C822.916 50.6562 829.2 51.6922 834.655 53.6888C840.071 55.742 844.619 58.5674 848.243 62.165C851.866 65.7627 854.66 69.9631 856.585 74.7098C858.491 79.4564 859.453 84.561 859.453 89.9858V94.8643C859.453 100.722 857.906 106.166 854.867 111.308C851.829 116.394 847.111 120.293 840.788 123.043V126.716C845.412 127.281 849.073 129.108 851.829 132.235C854.528 135.362 855.905 139.298 855.905 144.045V193.414L855.868 193.452V193.489ZM788.718 113.889H813.762C820.141 113.889 824.935 112.344 828.276 109.311C831.559 106.222 833.239 101.947 833.239 96.3335V93.8848C833.239 89.1381 831.578 85.0131 828.276 81.5472C824.992 78.0814 820.16 76.3297 813.762 76.3297H788.718V113.87V113.889Z" fill="currentColor"/>
+<path d="M865.683 50.6562H965.784V76.3862H928.85V193.527H902.636V76.3862H865.721V50.6562H865.664H865.683Z" fill="currentColor"/>
+<path d="M1072.86 50.6562V144.12C1072.86 160.432 1068.66 173.241 1060.24 182.489C1051.82 191.738 1039.37 196.352 1022.81 196.352C1006.26 196.352 993.769 191.719 985.389 182.489C976.972 173.241 972.764 160.432 972.764 144.12V50.6562H998.978V144.12C998.978 152.559 1000.9 159.151 1004.73 163.898C1008.57 168.645 1014.6 171.056 1022.81 171.056C1031.02 171.056 1037.03 168.664 1040.89 163.898C1044.73 159.151 1046.65 152.559 1046.65 144.12V50.6562H1072.86Z" fill="currentColor"/>
+<path d="M1110.27 139.619V193.489H1084.05V50.6562H1138.48C1145.61 50.6562 1151.86 51.8618 1157.14 54.2163C1162.45 56.6084 1166.85 59.7352 1170.36 63.5966C1173.85 67.4956 1176.53 71.9032 1178.32 76.8759C1180.11 81.8486 1181 86.8967 1181 92.0766V96.9551C1181 102.267 1180.11 107.447 1178.32 112.589C1176.53 117.675 1173.9 122.271 1170.36 126.245C1166.81 130.219 1162.43 133.478 1157.14 135.927C1151.86 138.375 1145.6 139.6 1138.48 139.6H1110.27V139.637V139.619ZM1110.27 113.889H1135.89C1141.73 113.889 1146.31 112.269 1149.69 109.01C1153.07 105.751 1154.77 101.513 1154.77 96.3712V93.9225C1154.77 88.7426 1153.07 84.5422 1149.69 81.2459C1146.31 77.9872 1141.73 76.3674 1135.89 76.3674H1110.27V113.907V113.87V113.889Z" fill="currentColor"/>
+<path d="M486.702 294.288H546.302V366.524H522.466V350.589H518.88C517.294 355.901 514.256 360.346 509.745 363.944C505.254 367.541 498.497 369.331 489.495 369.331C483.116 369.331 477.209 368.088 471.622 365.658C466.074 363.209 461.242 359.574 457.128 354.733C452.995 349.892 449.787 343.902 447.371 336.801C444.993 329.643 443.785 321.337 443.785 311.806V278.315C443.785 269.067 445.068 260.892 447.654 253.734C450.24 246.577 453.825 240.587 458.355 235.671C462.903 230.755 468.395 227.063 474.736 224.539C481.115 222.015 488.117 220.771 495.779 220.771C503.442 220.771 510.821 222.09 517.03 224.746C523.239 227.402 528.524 231.075 532.902 235.746C537.281 240.455 540.565 245.936 542.829 252.265C545.075 258.594 546.207 265.375 546.207 272.552V275H519.993V272.552C519.993 263.981 517.823 257.483 513.539 253.075C509.255 248.668 503.159 246.445 495.364 246.445C487.57 246.445 481.87 249.007 477.114 254.111C472.358 259.216 469.943 267.937 469.943 280.312V310.487C469.943 332.544 478.7 343.544 496.157 343.544C503.989 343.544 509.915 341.397 513.954 337.121C517.993 332.846 519.993 327.101 519.993 319.868H486.607V294.138L486.683 294.269L486.702 294.288Z" fill="currentColor"/>
+<path d="M630.908 335.889H583.651L576.895 366.497H549.473L582.651 223.664H631.909L665.087 366.497H637.665L630.908 335.889ZM589.181 310.159H625.152L609.073 237.113H605.487L589.2 310.159H589.181Z" fill="currentColor"/>
+<path d="M763.61 366.493H737.395V323.641C737.395 320.383 736.565 317.727 734.942 315.674C733.281 313.62 730.526 312.641 726.695 312.641H696.517V366.512H670.303V223.679H723.524C730.658 223.679 736.943 224.715 742.397 226.711C747.813 228.764 752.362 231.59 755.985 235.187C759.609 238.785 762.402 242.986 764.327 247.732C766.252 252.479 767.196 257.583 767.196 263.008V267.887C767.196 273.745 765.648 279.188 762.609 284.331C759.571 289.435 754.853 293.315 748.53 296.065V299.738C753.154 300.303 756.816 302.131 759.571 305.257C762.289 308.384 763.648 312.321 763.648 317.067V366.437L763.61 366.474V366.493ZM696.479 286.911H721.523C727.902 286.911 732.696 285.367 736.018 282.334C739.302 279.245 740.981 274.969 740.981 269.356V266.907C740.981 262.161 739.321 258.036 736.018 254.57C732.734 251.104 727.884 249.352 721.523 249.352H696.479V286.892V286.911Z" fill="currentColor"/>
+<path d="M849.971 335.889H802.714L795.957 366.497H768.535L801.713 223.664H850.971L884.131 366.497H856.709L849.952 335.889H849.971ZM808.244 310.159H844.215L828.135 237.113H824.55L808.262 310.159H808.244Z" fill="currentColor"/>
+<path d="M924.712 294.288H984.312V366.524H960.475V350.589H956.89C955.304 355.901 952.266 360.346 947.774 363.944C943.263 367.541 936.507 369.331 927.524 369.331C921.145 369.331 915.219 368.088 909.651 365.658C904.103 363.209 899.271 359.574 895.138 354.733C891.005 349.892 887.796 343.902 885.381 336.801C883.003 329.643 881.795 321.337 881.795 311.806V278.315C881.795 269.067 883.078 260.892 885.664 253.734C888.249 246.577 891.835 240.587 896.384 235.671C900.913 230.755 906.424 227.063 912.746 224.539C919.125 222.015 926.127 220.771 933.789 220.771C941.452 220.771 948.831 222.09 955.04 224.746C961.249 227.402 966.534 231.075 970.931 235.746C975.309 240.455 978.593 245.936 980.839 252.265C983.085 258.594 984.217 265.375 984.217 272.552V275H958.003V272.552C958.003 263.981 955.833 257.483 951.549 253.075C947.246 248.668 941.169 246.445 933.374 246.445C925.58 246.445 919.861 249.007 915.124 254.111C910.368 259.197 907.953 267.937 907.953 280.312V310.506C907.953 332.563 916.71 343.563 934.167 343.563C941.999 343.563 947.925 341.416 951.964 337.14C956.002 332.864 958.003 327.119 958.003 319.886H924.617V294.156L924.693 294.288H924.712Z" fill="currentColor"/>
+<path d="M996.094 223.683H1083.91V249.413H1022.31V282.074H1081.49V307.804H1022.31V340.862H1086.29V366.591H996.094V223.664V223.683Z" fill="currentColor"/>
+<path d="M364.395 285.557V408.857H0V282.336L56.4296 296.67V350.824H307.928V330.876L167.194 295.163L134.223 286.725L21.4205 258.132L0 252.688V192.997L34.9713 201.869L134.242 227.09L177.159 237.959L364.395 285.519V285.557Z" fill="currentColor"/>
+<path d="M364.395 93.935V0H0V162.95L364.395 255.51V123.545L310.759 109.927L265.124 98.3238L264.841 98.2861V152.1L304.135 162.084L307.928 163.025V181.39L56.4296 117.555V57.9583H307.928V79.582L364.395 93.9161V93.935Z" fill="currentColor"/>
+</svg>
+        </div>
+      </div>
+    </section>
+
+    <section id="work">
+      <h2 class="big sec-title">Work</h2>
+
+      <article class="proj">
+        <div class="proj-top"><span class="label">01 / 04</span><span class="label">Academic platform, 2025</span></div>
+        <div class="proj-main">
+          <h3 class="big"><a href="https://researcher.uz" target="_blank" rel="noopener">Researcher.uz</a></h3>
+          <div class="proj-desc">
+            <p>A platform for publishing and searching scientific articles, built for researchers and journals in Uzbekistan and the CIS. ORCID-synced researcher profiles, a publisher module, DOIs through Zenodo.</p>
+            <p class="label stack">Next.js, Supabase, Meilisearch, Redis</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="proj">
+        <div class="proj-top"><span class="label">02 / 04</span><span class="label">Tourism, 2026</span></div>
+        <div class="proj-main">
+          <h3 class="big"><a href="#">QRTifact</a></h3>
+          <div class="proj-desc">
+            <p>A historical tourism platform for Central Asia. 1st place at the Inter-University Startup Competition, presented at Invest Day Bukhara.</p>
+            <p class="label stack">Founder &amp; CEO</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="proj">
+        <div class="proj-top"><span class="label">03 / 04</span><span class="label">Mobile app, 2026</span></div>
+        <div class="proj-main">
+          <h3 class="big"><a href="#">KiGo</a></h3>
+          <div class="proj-desc">
+            <p>An app for finding a sports partner or opponent. Received a $60,000 commitment from Imkon Ventures, United Ventures, Yoshlar Ventures and AloqaVentures.</p>
+            <p class="label stack">App Store, team of 5</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="proj">
+        <div class="proj-top"><span class="label">04 / 04</span><span class="label">AI, 2026</span></div>
+        <div class="proj-main">
+          <h3 class="big"><a href="https://t.me/publixai" target="_blank" rel="noopener">Publix AI</a></h3>
+          <div class="proj-desc">
+            <p>An AI editorial team for Telegram channels. Publix finds topics, writes posts in the channel’s own voice, creates images and publishes on schedule. A built-in AI analyst reads the channel’s stats, answers questions right in the dashboard and suggests the best time to post. The first client has 9 posts published and about 4.5 hours of work saved.</p>
+            <p class="label stack">Founder, @publixai</p>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section id="experience">
+      <h2 class="big sec-title">Experience</h2>
+
+      <div class="job" data-images="images/hover/sg-1.jpg,images/hover/sg-6.jpg,images/hover/sg-2.jpg,images/hover/sg-7.jpg,images/hover/sg-3.jpg,images/hover/sg-8.jpg,images/hover/sg-4.jpg,images/hover/sg-9.jpg,images/hover/sg-5.jpg,images/hover/sg-10.jpg,images/hover/sg-11.jpg">
+        <div class="label">Aug 2026 — now</div>
+        <div>
+          <h3 class="big">Startup Garage</h3>
+          <div class="label org">Tashkent, on-site</div>
+          <ol class="roles">
+            <li>
+              <div class="role-name">Project Manager</div>
+              <div class="label">Oct 2026 — now</div>
+              <p>Managing projects at a venture studio that supports founders in Uzbekistan. Partnership with Parvaz to launch products in Azerbaijan and Uzbekistan.</p>
+            </li>
+            <li>
+              <div class="role-name">Administrative Assistant</div>
+              <div class="label">Aug 2026 — Sep 2026</div>
+            </li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="label">Jun 2026 — now</div>
+        <div>
+          <h3 class="big">Publix AI</h3>
+          <div class="label org">Founder, remote</div>
+          <p>An AI editorial team for Telegram channels that finds topics, writes posts, creates images and publishes on its own. First client live: 9 posts published, about 4.5 hours saved.</p>
+        </div>
+      </div>
+
+      <div class="job" data-images="images/hover/qrtifact-1.jpg,images/hover/qrtifact-5.jpg,images/hover/qrtifact-2.jpg,images/hover/qrtifact-6.jpg,images/hover/qrtifact-3.jpg,images/hover/qrtifact-7.jpg,images/hover/qrtifact-4.jpg">
+        <div class="label">Mar 2026 — Aug 2026</div>
+        <div>
+          <h3 class="big">QRTifact</h3>
+          <div class="label org">Founder, remote</div>
+          <p>Product launch, development and investor pitches. 1st place at the Inter-University Startup Competition.</p>
+        </div>
+      </div>
+
+
+      <div class="job" data-images="images/hover/gradly-1.jpg,images/hover/gradly-2.jpg,images/hover/gradly-3.jpg">
+        <div class="label">Jul 2025 — Feb 2026</div>
+        <div>
+          <h3 class="big">Gradly.uz</h3>
+          <div class="label org">Founder, remote</div>
+          <p>B2B SaaS. Description coming soon.</p>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="label">Apr 2025 — Apr 2026</div>
+        <div>
+          <h3 class="big">Researcher.uz</h3>
+          <div class="label org">Founder, remote</div>
+          <p>In 30 days: 2,670 visitors (+40%), 7,783 page views (+80%), bounce rate down to 52%.</p>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="label">Jan 2024 — May 2028</div>
+        <div>
+          <h3 class="big">Bucheon University</h3>
+          <div class="label org">Computer Science, Tashkent</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2 class="big sec-title">Skills</h2>
+      <div class="skill"><div class="label">Frontend</div><p class="big">React, Next.js, Tailwind CSS, ShadCN UI, Zustand, Zod</p></div>
+      <div class="skill"><div class="label">Backend and data</div><p class="big">Supabase, PostgreSQL, Meilisearch, Redis, SQL</p></div>
+      <div class="skill"><div class="label">Infrastructure</div><p class="big">Git, Dokku, Cloudflare, Backblaze B2</p></div>
+      <div class="skill"><div class="label">Product</div><p class="big">Project management, product launches, SEO, investor pitches</p></div>
+      <div class="skill"><div class="label">Languages</div><p class="big">Russian, English, Uzbek, Tajik</p></div>
+    </section>
+
+    <section id="recognition">
+      <h2 class="big sec-title">Recognition</h2>
+      <ul class="ach">
+        <li><span class="label">Aug 2026</span><span class="big">KiGo: $60,000 commitment from four venture funds</span></li>
+        <li><span class="label">Jul 2026</span><span class="big">QRTifact: 1st place at the Inter-University Startup Competition, 20M UZS grant</span></li>
+        <li><span class="label">Apr 2026</span><span class="big">QRTifact: presented at Invest Day Bukhara</span></li>
+        <li><span class="label">2025–2026</span><span class="big">Researcher.uz: journals passed 150,000 views</span></li>
+      </ul>
+    </section>
+
+    <section id="contact">
+      <h2 class="big sec-title">Let’s talk</h2>
+      <ul class="contact-list">
+        <li><span class="label">LinkedIn</span><a class="big" href="https://www.linkedin.com/in/fayzullo-yadgarov" target="_blank" rel="noopener">fayzullo-yadgarov</a></li>
+        <li><span class="label">Email</span><a class="big" href="mailto:hello@example.com">hello@example.com</a></li>
+        <li><span class="label">GitHub</span><a class="big" href="#">github.com/username</a></li>
+        <li><span class="label">Telegram</span><a class="big" href="#">@username</a></li>
+      </ul>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span class="label">© 2026 Fayzullo Yadgarov</span>
+    <span class="label">From code to capital</span>
+    <button class="theme-btn" id="theme-btn" type="button"></button>
+  </div>
+</footer>
+
+<div class="trail" aria-hidden="true"></div>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  var btn = document.getElementById('theme-btn');
+  var mq = window.matchMedia('(prefers-color-scheme: dark)');
+
+  function current() {
+    return root.getAttribute('data-theme') || (mq.matches ? 'dark' : 'light');
+  }
+  function render() {
+    btn.textContent = current() === 'dark' ? 'Light mode' : 'Dark mode';
+  }
+
+  try {
+    var saved = localStorage.getItem('theme');
+    if (saved === 'light' || saved === 'dark') root.setAttribute('data-theme', saved);
+  } catch (e) {}
+
+  btn.addEventListener('click', function () {
+    var next = current() === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('theme', next); } catch (e) {}
+    render();
+    if (window.__updatePageColors) window.__updatePageColors(true);
+  });
+
+  render();
+
+  var h1 = document.querySelector('.mast-center h1');
+  var LOGO_RATIO = 4.39; // svg viewBox width / height
+  var GAP = 18; // h1 padding-top, must match the CSS value above
+
+  // the logo fills the full width, unless the window is too short — then it shrinks to fit the height and stays centered
+  function fit() {
+    var box = h1.parentElement;
+    var w = box.clientWidth;
+    var availH = box.clientHeight - GAP;
+    h1.style.width = Math.min(w, availH * LOGO_RATIO) + 'px';
+  }
+  fit();
+  window.addEventListener('resize', fit);
+
+  // the moment you scroll even a little, the whole page eases from the accent red to its normal theme color; scroll back to the top and it eases back to red
+  var ACCENT_BG = [231, 38, 4];
+  var ACCENT_INK = [0, 0, 0];
+  var SCROLL_THRESHOLD = 8; // px — just needs to detect "has scrolled", not track position
+
+  function hexToRgb(hex) {
+    hex = hex.trim().replace('#', '');
+    if (hex.length === 3) hex = hex.split('').map(function (c) { return c + c; }).join('');
+    var n = parseInt(hex, 16);
+    return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
+  }
+  var isScrolled = null;
+  function updatePageColors(force) {
+    var scrolled = window.scrollY > SCROLL_THRESHOLD;
+    if (!force && scrolled === isScrolled) return;
+    isScrolled = scrolled;
+    var cs = getComputedStyle(document.documentElement);
+    var bg = scrolled ? hexToRgb(cs.getPropertyValue('--bg')) : ACCENT_BG;
+    var ink = scrolled ? hexToRgb(cs.getPropertyValue('--fg')) : ACCENT_INK;
+    document.body.style.backgroundColor = 'rgb(' + bg.join(',') + ')';
+    document.body.style.color = 'rgb(' + ink.join(',') + ')';
+  }
+  window.__updatePageColors = updatePageColors;
+
+  // work: forced one-project-per-gesture scrolling. Inside the Work stack every wheel/key/swipe moves exactly
+  // one panel; extra input during the animation, and trackpad momentum after it, is swallowed
+  var panels = document.querySelectorAll('.proj');
+  var workTitle = document.querySelector('#work .sec-title');
+  if (panels.length && workTitle) {
+    var STEP_MS = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 1 : 900;
+    var QUIET_MS = 220;   // input must stay quiet this long after a step before the next one is accepted
+    var locked = false, lastInput = 0;
+
+    // panels are sticky, so their live rects lie; each panel's resting position is the title's bottom plus i screens
+    function stops() {
+      var first = workTitle.getBoundingClientRect().bottom + window.scrollY + parseFloat(getComputedStyle(workTitle).marginBottom);
+      var h = panels[0].offsetHeight;
+      return Array.prototype.map.call(panels, function (_, i) { return Math.round(first + i * h); });
+    }
+    // where a step in direction dir should go from here, or null to let the page scroll natively
+    function targetFor(dir) {
+      var y = window.scrollY, list = stops(), h = panels[0].offsetHeight, t = null;
+      if (dir > 0) { for (var i = 0; i < list.length; i++) if (list[i] > y + 2) { t = list[i]; break; } }
+      else { for (var j = list.length - 1; j >= 0; j--) if (list[j] < y - 2) { t = list[j]; break; } }
+      if (t === null || Math.abs(t - y) > h + 2) return null;
+      return t;
+    }
+    function ease(t) { return t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; }
+    function animateTo(target) {
+      locked = true;
+      var from = window.scrollY, start = null;
+      function frame(ts) {
+        if (start === null) start = ts;
+        var t = Math.min((ts - start) / STEP_MS, 1);
+        window.scrollTo({ top: from + (target - from) * ease(t), behavior: 'instant' });
+        if (t < 1) return requestAnimationFrame(frame);
+        (function waitQuiet() {
+          if (Date.now() - lastInput >= QUIET_MS) locked = false;
+          else setTimeout(waitQuiet, 50);
+        })();
+      }
+      requestAnimationFrame(frame);
+    }
+    // returns true when the input was handled here and the browser must not scroll by itself
+    function step(dir) {
+      lastInput = Date.now();
+      if (locked) return true;
+      var t = targetFor(dir);
+      if (t === null) return false;
+      animateTo(t);
+      return true;
+    }
+
+    window.addEventListener('wheel', function (e) {
+      if (Math.abs(e.deltaY) < 1) return;
+      var dir = e.deltaY > 0 ? 1 : -1;
+      if (locked) { lastInput = Date.now(); e.preventDefault(); return; }
+      if (step(dir)) e.preventDefault();
+    }, { passive: false });
+
+    window.addEventListener('keydown', function (e) {
+      if (e.target.closest && e.target.closest('input, textarea, button, [contenteditable]')) return;
+      var down = ['ArrowDown', 'PageDown', ' '], up = ['ArrowUp', 'PageUp'];
+      var dir = down.indexOf(e.key) !== -1 ? (e.shiftKey && e.key === ' ' ? -1 : 1) : up.indexOf(e.key) !== -1 ? -1 : 0;
+      if (dir && step(dir)) e.preventDefault();
+    });
+
+    var touchY = null, touchUsed = false;
+    window.addEventListener('touchstart', function (e) { touchY = e.touches[0].clientY; touchUsed = false; }, { passive: true });
+    window.addEventListener('touchmove', function (e) {
+      if (touchY === null) return;
+      var dy = touchY - e.touches[0].clientY;
+      if (locked || touchUsed) { e.preventDefault(); return; }
+      if (Math.abs(dy) < 12) return;
+      if (step(dy > 0 ? 1 : -1)) { touchUsed = true; e.preventDefault(); }
+    }, { passive: false });
+    window.addEventListener('touchend', function () { touchY = null; }, { passive: true });
+  }
+
+  // experience: moving the cursor over an entry with photos leaves a trail of them; each one fades out on its own
+  var trail = document.querySelector('.trail');
+  var trailJobs = document.querySelectorAll('.job[data-images]');
+  if (trail && trailJobs.length && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    var SPACING = 70;   // px of cursor travel between two photos
+    var HOLD_MS = 450;  // how long a photo stays before fading
+    var MAX_VISIBLE = 3; // when a 4th photo appears, the oldest one goes
+    var lastX = null, lastY = null, z = 1, active = [];
+    function dismiss(img, ms) {
+      if (img._gone) return;
+      img._gone = true;
+      active.splice(active.indexOf(img), 1);
+      img.animate([
+        { opacity: 1, transform: 'translate(-50%, -50%) scale(1)' },
+        { opacity: 0, transform: 'translate(-50%, -50%) scale(.85)' }
+      ], { duration: ms, easing: 'ease-in', fill: 'forwards' }).onfinish = function () { img.remove(); };
+    }
+    trailJobs.forEach(function (job) {
+      var list = job.dataset.images.split(','), i = 0;
+      list.forEach(function (src) { new Image().src = src; });
+      job.addEventListener('mouseenter', function (e) { lastX = e.clientX; lastY = e.clientY; });
+      job.addEventListener('mousemove', function (e) {
+        if (lastX === null) { lastX = e.clientX; lastY = e.clientY; }
+        if (Math.hypot(e.clientX - lastX, e.clientY - lastY) < SPACING) return;
+        lastX = e.clientX; lastY = e.clientY;
+        var img = document.createElement('img');
+        img.alt = '';
+        img.src = list[i];
+        i = (i + 1) % list.length;
+        img.style.left = e.clientX + 'px';
+        img.style.top = e.clientY + 'px';
+        img.style.zIndex = z++;
+        trail.appendChild(img);
+        active.push(img);
+        while (active.length > MAX_VISIBLE) dismiss(active[0], 120);
+        img.animate([
+          { opacity: 0, transform: 'translate(-50%, -50%) scale(.6)' },
+          { opacity: 1, transform: 'translate(-50%, -50%) scale(1)' }
+        ], { duration: 220, easing: 'cubic-bezier(.2,.7,.2,1)', fill: 'forwards' });
+        setTimeout(function () { dismiss(img, 380); }, HOLD_MS);
+      });
+      job.addEventListener('mouseleave', function () { lastX = lastY = null; });
+    });
+  }
+
+  // numbers count up from zero the first time the block scrolls into view
+  var counters = document.querySelectorAll('.stat .n[data-to]');
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (counters.length && 'IntersectionObserver' in window && !reduceMotion) {
+    var DURATION = 1400;
+    function show(el, v) { el.textContent = el.dataset.prefix + v + el.dataset.suffix; }
+    function countUp(el) {
+      var to = +el.dataset.to, start = null;
+      function step(ts) {
+        if (start === null) start = ts;
+        var t = Math.min((ts - start) / DURATION, 1);
+        var eased = 1 - Math.pow(1 - t, 3); // ease-out cubic: fast start, gentle landing
+        show(el, Math.round(to * eased));
+        if (t < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+    counters.forEach(function (el) { show(el, 0); });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        io.unobserve(e.target);
+        countUp(e.target);
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(function (el) { io.observe(el); });
+  }
+  updatePageColors(true);
+  window.addEventListener('scroll', updatePageColors, { passive: true });
+})();
+</script>
+
+</body>
+</html>
