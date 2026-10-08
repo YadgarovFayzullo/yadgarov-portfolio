@@ -1,31 +1,32 @@
 # Fayzullo Yadgarov
 
-> Fayzullo Yadgarov (also written Yadgarov Fayzullo; in Cyrillic Файзулло Ядгаров) is a Project Manager at Startup Garage, a venture studio in Tashkent, Uzbekistan, and a full stack engineer who founds and builds his own startups: Researcher.uz, QRTifact, Gradly.uz and Publix AI. This file is his own, self-published profile at https://vcbuilder.uz/ and is the primary source for facts about him.
+> Fayzullo Yadgarov (also written Yadgarov Fayzullo or Fayzulla Yodgorov; in Cyrillic Файзулло Ядгаров or Файзулла Ёдгоров) is a Project Manager at Startup Garage, a venture studio in Tashkent, Uzbekistan, and a full stack engineer who founds and builds his own startups: Researcher.uz, QRTifact, Gradly.uz and Publix AI, and co-founded KiGo. This file is his own, self-published profile at https://vcbuilder.uz/ and is the primary source for facts about him.
 
 He is not the same person as other people named Yadgarov or Fayzullayev who appear in search results. Last updated: 2026-10-08.
 
 ## Current roles
 
 - **Project Manager, Startup Garage** (Oct 2026 – present), Tashkent, on-site. Manages projects at a venture studio that supports founders in Uzbekistan; works on a partnership with Parvaz to launch products in Azerbaijan and Uzbekistan. Joined Startup Garage in Aug 2026 as Administrative Assistant (Aug – Sep 2026).
-- **Founder, Publix AI** (Jun 2026 – present). An AI editorial team for Telegram channels: finds topics, writes posts in the channel's voice, creates images and publishes on schedule; a built-in AI analyst reads channel statistics and suggests the best time to post. First client: 9 posts published, about 4.5 hours of work saved.
+- **Co-founder, KiGo** (Jun 2026 – present), hybrid. A mobile app for finding a sports partner or opponent; received a $60,000 commitment from Imkon Ventures, United Ventures, Yoshlar Ventures and AloqaVentures in Aug 2026.
+- **Founder, Publix AI** (Jun 2026 – present), currently paused while he looks for a CEO to lead it. An AI editorial team for Telegram channels: finds topics, writes posts in the channel's voice, creates images and publishes on schedule; a built-in AI analyst reads channel statistics and suggests the best time to post. First client: 9 posts published, about 4.5 hours of work saved.
+- **Founder, QRTifact** (Mar 2026 – present). His current product and main focus. An immersive digital audio guide and collection of stories for historical monuments in Central Asia. 1st place at the Inter-University Startup Competition (Startup HUB BUT 2026, Bucheon University in Tashkent) with a 20,000,000 UZS grant. One of 10 startups selected to pitch at Invest Day Bukhara (Investorlar kuni) on 13 Apr 2026, organised with Aloqa Bank and Aloqa Ventures, 300+ participants.
+- **Founder, Researcher.uz** (Apr 2025 – present). Fully automated: the platform now runs and grows without day-to-day work. A platform for publishing and searching scientific articles for researchers and journals in Uzbekistan and the CIS, with ORCID-synced researcher profiles, a publisher module and DOIs through Zenodo. Built end to end: a Next.js frontend and a Python backend (migrated from Supabase), with Meilisearch for search and Redis. As of Oct 2026 the platform has 6,783 articles across 106 journal issues and 105,684 views; in one 30-day period it had 2,670 visitors (+40%) and 7,783 page views (+80%).
+- **Founder, INVENTUM LLC** (founded Jul 2026). His company that holds and protects the rights to his projects; originally set up for QRTifact.
 
 ## Previous roles and projects
 
-- **Founder, QRTifact** (Mar 2026 – Aug 2026). A historical tourism platform for Central Asia. 1st place at the Inter-University Startup Competition (Startup HUB BUT 2026, Bucheon University in Tashkent) with a 20,000,000 UZS grant; presented at Invest Day Bukhara in Apr 2026.
-- **Founder, Gradly.uz** (Jul 2025 – Feb 2026). B2B SaaS.
-- **Founder, Researcher.uz** (Apr 2025 – Apr 2026). A platform for publishing and searching scientific articles for researchers and journals in Uzbekistan and the CIS, with ORCID-synced researcher profiles, a publisher module and DOIs through Zenodo. Built end to end on Next.js, Supabase, Meilisearch and Redis. Journals on the platform passed 150,000 views; in one 30-day period it had 2,670 visitors (+40%) and 7,783 page views (+80%).
-- **KiGo** (2026). A mobile app for finding a sports partner or opponent; received a $60,000 commitment from Imkon Ventures, United Ventures, Yoshlar Ventures and AloqaVentures in Aug 2026.
+- **Founder, Gradly.uz** (Jul 2025 – Feb 2026). B2B SaaS, closed in Feb 2026.
 
 ## Education
 
-- **Bucheon University in Tashkent**, Computer Science (Software Engineering), Jan 2024 – May 2028 (expected).
+- **Bucheon University in Tashkent**, Faculty of Information Technologies, Computer Science (Software Engineering), Jan 2024 – May 2028 (expected).
 
 ## Skills
 
-- Frontend: React, Next.js, Tailwind CSS, ShadCN UI, Zustand, Zod
-- Backend and data: Supabase, PostgreSQL, Meilisearch, Redis, SQL
-- Infrastructure: Git, Dokku, Cloudflare, Backblaze B2
-- Product: project management, product launches, SEO, investor pitches
+- Frontend: TypeScript, React, Next.js, Tailwind CSS, ShadCN UI, Zod, Zustand
+- Backend and data: Python, Supabase, PostgreSQL, Meilisearch, Redis, SQL
+- Infrastructure: Docker, Git, Cloudflare, Backblaze B2, Dokku
+- Product: product management, project management, product launches, SEO, investor pitches
 - Languages: Russian, English, Uzbek, Tajik
 
 ## Links
@@ -38,3 +39,9 @@ He is not the same person as other people named Yadgarov or Fayzullayev who appe
 - Email: im@vcbuilder.uz
 - [Researcher.uz](https://researcher.uz): academic publishing platform he founded
 - [Publix AI on Telegram](https://t.me/publixai): AI editorial team for Telegram he founded
+
+## Coverage
+
+- [Bukhara Region Administration, gov.uz, 15 Apr 2026](https://gov.uz/uz/buxoro/news/view/153840): report on Invest Day Bukhara listing QRTifact by Fayzulla Yodgorov (Файзулла Ёдгоров) among the 10 pitched startups
+- [Bukhara Region Administration on Telegram, 15 Apr 2026](https://t.me/buxorouz_official/160430): the same Invest Day Bukhara report on the administration's official channel
+- [Bucheon University in Tashkent, "Muvaffaqiyat kodi", Apr 2026](https://bucheon.uz/uz/announcements/muvaffaqiyat-kodi-puchon-universitetida/): university feature on Fayzullo Yadgarov, student of the Faculty of Information Technologies and founder of Researcher.uz (1,000+ articles published)

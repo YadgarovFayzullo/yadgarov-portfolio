@@ -36,17 +36,33 @@
       "name": "Fayzullo Yadgarov",
       "givenName": "Fayzullo",
       "familyName": "Yadgarov",
-      "alternateName": ["Yadgarov Fayzullo", "Файзулло Ядгаров"],
+      "alternateName": ["Yadgarov Fayzullo", "Fayzulla Yodgorov", "Файзулло Ядгаров", "Файзулла Ёдгоров"],
       "url": "https://vcbuilder.uz/",
-      "image": "https://vcbuilder.uz/images/og.png",
+      "image": "https://vcbuilder.uz/images/fayzullo-square.jpg",
       "description": "Project Manager at Startup Garage, full stack engineer and founder of Researcher.uz, QRTifact and Publix AI.",
       "jobTitle": "Project Manager",
       "worksFor": { "@type": "Organization", "name": "Startup Garage" },
       "alumniOf": { "@type": "CollegeOrUniversity", "name": "Bucheon University in Tashkent" },
       "address": { "@type": "PostalAddress", "addressLocality": "Tashkent", "addressCountry": "UZ" },
       "knowsLanguage": ["ru", "en", "uz", "tg"],
-      "knowsAbout": ["Venture building", "Startups", "Project management", "Full stack development", "Next.js", "React", "Supabase"],
+      "knowsAbout": ["Venture building", "Startups", "Project management", "Full stack development", "Next.js", "React", "Python", "Supabase"],
       "email": "mailto:im@vcbuilder.uz",
+      "subjectOf": [
+  {
+          "@type": "NewsArticle",
+          "headline": "Investorlar kuni for young entrepreneurs in Bukhara",
+          "datePublished": "2026-04-15",
+          "url": "https://gov.uz/uz/buxoro/news/view/153840",
+          "publisher": { "@type": "GovernmentOrganization", "name": "Bukhara Region Administration" }
+        },
+        {
+          "@type": "Article",
+          "headline": "Muvaffaqiyat kodi — Toshkent shahridagi Puchon universitetida",
+          "datePublished": "2026-04",
+          "url": "https://bucheon.uz/uz/announcements/muvaffaqiyat-kodi-puchon-universitetida/",
+          "publisher": { "@type": "CollegeOrUniversity", "name": "Bucheon University in Tashkent" }
+        }
+      ],
       "sameAs": [
         "https://www.linkedin.com/in/fayzullo-yadgarov",
         "https://t.me/yadgarovvv",
@@ -64,6 +80,19 @@
       "@type": "Organization",
       "name": "Publix AI",
       "url": "https://t.me/publixai",
+      "founder": { "@id": "https://vcbuilder.uz/#person" }
+    },
+    {
+      "@type": "Organization",
+      "name": "INVENTUM",
+      "legalName": "INVENTUM LLC",
+      "foundingDate": "2026-07",
+      "description": "Company founded by Fayzullo Yadgarov that holds and protects the rights to his projects. Originally set up for QRTifact.",
+      "founder": { "@id": "https://vcbuilder.uz/#person" }
+    },
+    {
+      "@type": "Organization",
+      "name": "KiGo",
       "founder": { "@id": "https://vcbuilder.uz/#person" }
     },
     {
@@ -210,8 +239,12 @@ section { padding-top: clamp(96px, 13vw, 220px); }
 
 /* about */
 .intro { margin-bottom: 24px; }
-.statement { font-size: clamp(34px, 5.4vw, 120px); max-width: 15ch; margin-bottom: clamp(40px, 6vw, 110px); }
-.about-cols p { max-width: 520px; }
+.about-top { display: grid; grid-template-columns: 1fr clamp(220px, 24vw, 360px); gap: 20px; align-items: end; padding-right: clamp(24px, 7vw, 140px); }
+.statement { font-size: clamp(34px, 5.4vw, 120px); max-width: 15ch; }
+/* the whole photo drifts away from the cursor */
+.portrait-frame { aspect-ratio: 4 / 5; transform: translate3d(var(--px, 0px), var(--py, 0px), 0); will-change: transform; }
+.portrait { width: 100%; height: 100%; object-fit: cover; display: block; }
+@media (max-width: 760px) { .about-top { grid-template-columns: 1fr; padding-right: 0; } .portrait-frame { max-width: 320px; } }
 
 /* numbers */
 .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
@@ -220,13 +253,6 @@ section { padding-top: clamp(96px, 13vw, 220px); }
 .stat .label { max-width: 240px; }
 
 /* work */
-
-/* partners: one row of single-colour logos that follow the text colour */
-#partners { padding-top: clamp(64px, 8vw, 120px); }
-.logos-row { display: grid; grid-template-columns: 240px 1fr; gap: 20px; align-items: center; }
-.logos { display: flex; flex-wrap: wrap; align-items: center; gap: 32px 64px; }
-.partner-logo { height: clamp(30px, 3vw, 46px); width: auto; display: block; }
-@media (max-width: 760px) { .logos-row { grid-template-columns: 1fr; gap: 16px; } }
 
 /* work: one project per screen; each panel sticks to the top and the next one slides up over it */
 .proj {
@@ -277,8 +303,21 @@ section { padding-top: clamp(96px, 13vw, 220px); }
 /* skills */
 .skill { display: grid; grid-template-columns: 240px 1fr; gap: 20px; padding-bottom: clamp(28px, 3vw, 48px); }
 .skill:last-child { padding-bottom: 0; }
-.skill p { font-size: clamp(30px, 3.8vw, 80px); }
+.skill p { font-size: clamp(24px, 2.6vw, 48px); max-width: 26ch; }
 .skill .label { padding-top: .5em; }
+/* stack wall: a grid of single-colour logos (Simple Icons, CC0) with a caption under each; on hover a logo takes its own brand colour */
+.stack-grid { list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(clamp(110px, 10vw, 160px), 1fr)); gap: clamp(32px, 3.5vw, 56px) 20px; }
+.stack-grid li { display: flex; flex-direction: column; gap: 16px; }
+.glyph { height: clamp(44px, 4.4vw, 76px); display: flex; align-items: center; transition: color .25s ease, transform .35s cubic-bezier(.2,.7,.2,1); }
+.glyph svg { height: 100%; width: auto; fill: currentColor; }
+/* the Zustand bear is an illustration, not a flat mark: grey at rest like the rest of the wall, its own colours on hover */
+.glyph-img img { height: 100%; width: auto; display: block; filter: grayscale(1) contrast(1.15); transition: filter .25s ease; }
+.stack-grid li:hover .glyph-img img { filter: none; }
+.glyph-text { font-weight: 700; font-size: clamp(38px, 3.9vw, 68px); letter-spacing: -0.04em; line-height: 1; }
+.stack-grid .label { transition: color .25s ease; }
+.stack-grid li:hover .glyph { color: var(--brand, var(--fg)); transform: translateY(-6px); }
+.stack-grid li:hover .label { color: var(--fg); }
+.skill .stack-grid { padding-bottom: clamp(16px, 2vw, 32px); }
 @media (max-width: 760px) { .skill { grid-template-columns: 1fr; gap: 6px; } .skill .label { padding-top: 0; } }
 
 /* recognition */
@@ -292,7 +331,7 @@ section { padding-top: clamp(96px, 13vw, 220px); }
 /* contact */
 .contact-list { list-style: none; }
 .contact-list li { display: grid; grid-template-columns: 240px 1fr; gap: 20px; padding-bottom: 18px; }
-.contact-list a { font-size: clamp(30px, 4.6vw, 100px); overflow-wrap: anywhere; }
+.contact-list a { font-size: clamp(30px, 4.6vw, 100px); overflow-wrap: anywhere; justify-self: start; } /* hover area = the text, not the whole row */
 .contact-list .label { padding-top: .6em; }
 @media (max-width: 760px) { .contact-list li { grid-template-columns: 1fr; gap: 2px; } .contact-list .label { padding-top: 0; } }
 
@@ -327,43 +366,18 @@ footer { padding: clamp(96px, 13vw, 220px) 0 24px; }
 
     <section id="about">
       <p class="label intro">Fayzullo Yadgarov — Project Manager at Startup Garage, Tashkent</p>
-      <p class="big statement">I build products from the first line of code to the first investor.</p>
-      <div class="grid2 about-cols">
-        <p>Full stack developer working with React, Next.js and Tailwind CSS. I like building clean, scalable web applications. I study Computer Science at Bucheon University in Tashkent and launch my own products on the side.</p>
-        <p>I work with Git, Dokku, API integrations and performance optimization. Right now I run projects at Startup Garage and keep growing Researcher.uz, QRTifact and KiGo.</p>
-      </div>    </section>
-
-    <section id="numbers">
-      <div class="stats">
-        <div class="stat"><div class="big n" data-to="150" data-prefix="" data-suffix="K+">150K+</div><div class="label">Journal views on Researcher.uz</div></div>
-        <div class="stat"><div class="big n" data-to="60" data-prefix="$" data-suffix="K">$60K</div><div class="label">Investor commitment in KiGo</div></div>
-        <div class="stat"><div class="big n" data-to="20" data-prefix="" data-suffix="M">20M</div><div class="label">UZS grant for 1st place, QRTifact</div></div>
-        <div class="stat"><div class="big n" data-to="500" data-prefix="~" data-suffix="">~500</div><div class="label">Startups in the Startup Garage ecosystem</div></div>
+      <div class="about-top">
+        <p class="big statement">I build products from the first line of code to the first investor.</p>
+        <div class="portrait-frame"><img class="portrait" src="images/fayzullo.jpg" width="512" height="640" alt="Fayzullo Yadgarov speaking on stage with a microphone"></div>
       </div>
     </section>
 
-    <section id="partners">
-      <div class="logos-row">
-        <div class="label">Worked with</div>
-        <div class="logos">
-          <svg class="partner-logo" role="img" aria-label="Startup Garage" viewBox="0 0 1181 409" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M519.658 94.3256C519.658 88.6372 517.488 83.6645 513.204 79.4264C508.92 75.2259 502.824 73.0975 495.029 73.0975C488.405 73.0975 483.196 74.5102 479.327 77.2979C475.458 80.0856 473.571 83.8528 473.571 88.6372C473.571 91.0858 474.024 93.3085 474.949 95.2674C475.873 97.2452 477.497 98.9969 479.818 100.579C482.158 102.161 485.197 103.536 488.952 104.78C492.746 106.023 497.539 107.172 503.371 108.245C517.96 110.977 529.038 115.516 536.757 121.901C544.419 128.287 548.251 137.743 548.251 150.287V152.736C548.251 159.423 547.08 165.413 544.797 170.8C542.456 176.187 539.135 180.783 534.757 184.588C530.378 188.392 525.094 191.312 518.884 193.365C512.675 195.418 505.636 196.398 497.841 196.398C488.707 196.398 480.667 195.079 473.703 192.423C466.739 189.768 460.945 186.094 456.321 181.423C451.697 176.752 448.187 171.233 445.771 164.904C443.393 158.575 442.186 151.681 442.186 144.184V138.063H468.4V142.941C468.4 151.512 470.816 158.349 475.647 163.454C480.479 168.558 487.99 171.12 498.2 171.12C506.164 171.12 512.034 169.368 515.865 165.808C519.696 162.248 521.621 158.067 521.621 153.169C521.621 150.852 521.206 148.63 520.413 146.539C519.621 144.448 518.205 142.508 516.242 140.85C514.242 139.136 511.524 137.648 508.108 136.273C504.654 134.898 500.276 133.749 494.973 132.808C487.971 131.564 481.516 129.982 475.722 128.004C469.891 126.027 464.852 123.427 460.511 120.169C456.227 116.91 452.886 112.804 450.471 107.925C448.093 103.047 446.885 97.0568 446.885 89.9933V88.7502C446.885 82.8922 448.055 77.4863 450.339 72.5136C452.679 67.5409 455.887 63.2274 460.096 59.5356C464.267 55.8626 469.306 52.9807 475.175 50.9652C481.045 48.9121 487.631 47.9326 494.935 47.9326C503.145 47.9326 510.429 49.1381 516.771 51.4926C523.15 53.8848 528.434 57.1057 532.775 61.1743C537.059 65.2429 540.324 69.9519 542.475 75.2636C544.684 80.5754 545.759 86.132 545.759 92.0088V99.3737H519.545V94.4951L519.621 94.3633L519.658 94.3256Z" fill="currentColor"/>
-<path d="M552.057 50.6562H652.158V76.3862H615.243V193.527H589.028V76.3862H552.113V50.6562H552.076H552.057Z" fill="currentColor"/>
-<path d="M723.237 162.881H675.979L669.223 193.489H641.801L674.979 50.6562H724.237L757.415 193.489H729.993L723.237 162.881ZM681.509 137.189H717.48L701.401 64.1428H697.815L681.528 137.189H681.509Z" fill="currentColor"/>
-<path d="M855.868 193.489H829.653V150.638C829.653 147.379 828.823 144.723 827.181 142.67C825.52 140.617 822.765 139.637 818.933 139.637H788.775V193.508H762.561V50.6562H815.782C822.916 50.6562 829.2 51.6922 834.655 53.6888C840.071 55.742 844.619 58.5674 848.243 62.165C851.866 65.7627 854.66 69.9631 856.585 74.7098C858.491 79.4564 859.453 84.561 859.453 89.9858V94.8643C859.453 100.722 857.906 106.166 854.867 111.308C851.829 116.394 847.111 120.293 840.788 123.043V126.716C845.412 127.281 849.073 129.108 851.829 132.235C854.528 135.362 855.905 139.298 855.905 144.045V193.414L855.868 193.452V193.489ZM788.718 113.889H813.762C820.141 113.889 824.935 112.344 828.276 109.311C831.559 106.222 833.239 101.947 833.239 96.3335V93.8848C833.239 89.1381 831.578 85.0131 828.276 81.5472C824.992 78.0814 820.16 76.3297 813.762 76.3297H788.718V113.87V113.889Z" fill="currentColor"/>
-<path d="M865.683 50.6562H965.784V76.3862H928.85V193.527H902.636V76.3862H865.721V50.6562H865.664H865.683Z" fill="currentColor"/>
-<path d="M1072.86 50.6562V144.12C1072.86 160.432 1068.66 173.241 1060.24 182.489C1051.82 191.738 1039.37 196.352 1022.81 196.352C1006.26 196.352 993.769 191.719 985.389 182.489C976.972 173.241 972.764 160.432 972.764 144.12V50.6562H998.978V144.12C998.978 152.559 1000.9 159.151 1004.73 163.898C1008.57 168.645 1014.6 171.056 1022.81 171.056C1031.02 171.056 1037.03 168.664 1040.89 163.898C1044.73 159.151 1046.65 152.559 1046.65 144.12V50.6562H1072.86Z" fill="currentColor"/>
-<path d="M1110.27 139.619V193.489H1084.05V50.6562H1138.48C1145.61 50.6562 1151.86 51.8618 1157.14 54.2163C1162.45 56.6084 1166.85 59.7352 1170.36 63.5966C1173.85 67.4956 1176.53 71.9032 1178.32 76.8759C1180.11 81.8486 1181 86.8967 1181 92.0766V96.9551C1181 102.267 1180.11 107.447 1178.32 112.589C1176.53 117.675 1173.9 122.271 1170.36 126.245C1166.81 130.219 1162.43 133.478 1157.14 135.927C1151.86 138.375 1145.6 139.6 1138.48 139.6H1110.27V139.637V139.619ZM1110.27 113.889H1135.89C1141.73 113.889 1146.31 112.269 1149.69 109.01C1153.07 105.751 1154.77 101.513 1154.77 96.3712V93.9225C1154.77 88.7426 1153.07 84.5422 1149.69 81.2459C1146.31 77.9872 1141.73 76.3674 1135.89 76.3674H1110.27V113.907V113.87V113.889Z" fill="currentColor"/>
-<path d="M486.702 294.288H546.302V366.524H522.466V350.589H518.88C517.294 355.901 514.256 360.346 509.745 363.944C505.254 367.541 498.497 369.331 489.495 369.331C483.116 369.331 477.209 368.088 471.622 365.658C466.074 363.209 461.242 359.574 457.128 354.733C452.995 349.892 449.787 343.902 447.371 336.801C444.993 329.643 443.785 321.337 443.785 311.806V278.315C443.785 269.067 445.068 260.892 447.654 253.734C450.24 246.577 453.825 240.587 458.355 235.671C462.903 230.755 468.395 227.063 474.736 224.539C481.115 222.015 488.117 220.771 495.779 220.771C503.442 220.771 510.821 222.09 517.03 224.746C523.239 227.402 528.524 231.075 532.902 235.746C537.281 240.455 540.565 245.936 542.829 252.265C545.075 258.594 546.207 265.375 546.207 272.552V275H519.993V272.552C519.993 263.981 517.823 257.483 513.539 253.075C509.255 248.668 503.159 246.445 495.364 246.445C487.57 246.445 481.87 249.007 477.114 254.111C472.358 259.216 469.943 267.937 469.943 280.312V310.487C469.943 332.544 478.7 343.544 496.157 343.544C503.989 343.544 509.915 341.397 513.954 337.121C517.993 332.846 519.993 327.101 519.993 319.868H486.607V294.138L486.683 294.269L486.702 294.288Z" fill="currentColor"/>
-<path d="M630.908 335.889H583.651L576.895 366.497H549.473L582.651 223.664H631.909L665.087 366.497H637.665L630.908 335.889ZM589.181 310.159H625.152L609.073 237.113H605.487L589.2 310.159H589.181Z" fill="currentColor"/>
-<path d="M763.61 366.493H737.395V323.641C737.395 320.383 736.565 317.727 734.942 315.674C733.281 313.62 730.526 312.641 726.695 312.641H696.517V366.512H670.303V223.679H723.524C730.658 223.679 736.943 224.715 742.397 226.711C747.813 228.764 752.362 231.59 755.985 235.187C759.609 238.785 762.402 242.986 764.327 247.732C766.252 252.479 767.196 257.583 767.196 263.008V267.887C767.196 273.745 765.648 279.188 762.609 284.331C759.571 289.435 754.853 293.315 748.53 296.065V299.738C753.154 300.303 756.816 302.131 759.571 305.257C762.289 308.384 763.648 312.321 763.648 317.067V366.437L763.61 366.474V366.493ZM696.479 286.911H721.523C727.902 286.911 732.696 285.367 736.018 282.334C739.302 279.245 740.981 274.969 740.981 269.356V266.907C740.981 262.161 739.321 258.036 736.018 254.57C732.734 251.104 727.884 249.352 721.523 249.352H696.479V286.892V286.911Z" fill="currentColor"/>
-<path d="M849.971 335.889H802.714L795.957 366.497H768.535L801.713 223.664H850.971L884.131 366.497H856.709L849.952 335.889H849.971ZM808.244 310.159H844.215L828.135 237.113H824.55L808.262 310.159H808.244Z" fill="currentColor"/>
-<path d="M924.712 294.288H984.312V366.524H960.475V350.589H956.89C955.304 355.901 952.266 360.346 947.774 363.944C943.263 367.541 936.507 369.331 927.524 369.331C921.145 369.331 915.219 368.088 909.651 365.658C904.103 363.209 899.271 359.574 895.138 354.733C891.005 349.892 887.796 343.902 885.381 336.801C883.003 329.643 881.795 321.337 881.795 311.806V278.315C881.795 269.067 883.078 260.892 885.664 253.734C888.249 246.577 891.835 240.587 896.384 235.671C900.913 230.755 906.424 227.063 912.746 224.539C919.125 222.015 926.127 220.771 933.789 220.771C941.452 220.771 948.831 222.09 955.04 224.746C961.249 227.402 966.534 231.075 970.931 235.746C975.309 240.455 978.593 245.936 980.839 252.265C983.085 258.594 984.217 265.375 984.217 272.552V275H958.003V272.552C958.003 263.981 955.833 257.483 951.549 253.075C947.246 248.668 941.169 246.445 933.374 246.445C925.58 246.445 919.861 249.007 915.124 254.111C910.368 259.197 907.953 267.937 907.953 280.312V310.506C907.953 332.563 916.71 343.563 934.167 343.563C941.999 343.563 947.925 341.416 951.964 337.14C956.002 332.864 958.003 327.119 958.003 319.886H924.617V294.156L924.693 294.288H924.712Z" fill="currentColor"/>
-<path d="M996.094 223.683H1083.91V249.413H1022.31V282.074H1081.49V307.804H1022.31V340.862H1086.29V366.591H996.094V223.664V223.683Z" fill="currentColor"/>
-<path d="M364.395 285.557V408.857H0V282.336L56.4296 296.67V350.824H307.928V330.876L167.194 295.163L134.223 286.725L21.4205 258.132L0 252.688V192.997L34.9713 201.869L134.242 227.09L177.159 237.959L364.395 285.519V285.557Z" fill="currentColor"/>
-<path d="M364.395 93.935V0H0V162.95L364.395 255.51V123.545L310.759 109.927L265.124 98.3238L264.841 98.2861V152.1L304.135 162.084L307.928 163.025V181.39L56.4296 117.555V57.9583H307.928V79.582L364.395 93.9161V93.935Z" fill="currentColor"/>
-</svg>
-        </div>
+    <section id="numbers">
+      <div class="stats">
+        <div class="stat"><div class="big n" data-to="6700" data-prefix="" data-suffix="+">6,700+</div><div class="label">Articles published on Researcher.uz</div></div>
+        <div class="stat"><div class="big n" data-to="60" data-prefix="$" data-suffix="K">$60K</div><div class="label">Investor commitment in KiGo</div></div>
+        <div class="stat"><div class="big n" data-to="20" data-prefix="" data-suffix="M">20M</div><div class="label">UZS grant for 1st place, QRTifact</div></div>
+        <div class="stat"><div class="big n" data-to="500" data-prefix="~" data-suffix="">~500</div><div class="label">Startups in the Startup Garage ecosystem</div></div>
       </div>
     </section>
 
@@ -375,18 +389,18 @@ footer { padding: clamp(96px, 13vw, 220px) 0 24px; }
         <div class="proj-main">
           <h3 class="big"><a href="https://researcher.uz" target="_blank" rel="noopener">Researcher.uz</a></h3>
           <div class="proj-desc">
-            <p>A platform for publishing and searching scientific articles, built for researchers and journals in Uzbekistan and the CIS. ORCID-synced researcher profiles, a publisher module, DOIs through Zenodo.</p>
-            <p class="label stack">Next.js, Supabase, Meilisearch, Redis</p>
+            <p>A platform for publishing and searching scientific articles, built for researchers and journals in Uzbekistan and the CIS. Over 6,700 articles across 106 journal issues and more than 105,000 views. ORCID-synced researcher profiles, a publisher module, DOIs through Zenodo.</p>
+            <p class="label stack">Next.js, Python, Meilisearch, Redis</p>
           </div>
         </div>
       </article>
 
       <article class="proj">
-        <div class="proj-top"><span class="label">02 / 04</span><span class="label">Tourism, 2026</span></div>
+        <div class="proj-top"><span class="label">02 / 04</span><span class="label">Tourism, 2026, current focus</span></div>
         <div class="proj-main">
           <h3 class="big"><a href="#">QRTifact</a></h3>
           <div class="proj-desc">
-            <p>A historical tourism platform for Central Asia. 1st place at the Inter-University Startup Competition, presented at Invest Day Bukhara.</p>
+            <p>An immersive digital audio guide and collection of stories for historical monuments in Central Asia. 1st place at the Inter-University Startup Competition, one of 10 startups selected to pitch at Invest Day Bukhara.</p>
             <p class="label stack">Founder &amp; CEO</p>
           </div>
         </div>
@@ -398,7 +412,7 @@ footer { padding: clamp(96px, 13vw, 220px) 0 24px; }
           <h3 class="big"><a href="#">KiGo</a></h3>
           <div class="proj-desc">
             <p>An app for finding a sports partner or opponent. Received a $60,000 commitment from Imkon Ventures, United Ventures, Yoshlar Ventures and AloqaVentures.</p>
-            <p class="label stack">App Store, team of 5</p>
+            <p class="label stack">Co-founder, App Store, team of 5</p>
           </div>
         </div>
       </article>
@@ -409,7 +423,7 @@ footer { padding: clamp(96px, 13vw, 220px) 0 24px; }
           <h3 class="big"><a href="https://t.me/publixai" target="_blank" rel="noopener">Publix AI</a></h3>
           <div class="proj-desc">
             <p>An AI editorial team for Telegram channels. Publix finds topics, writes posts in the channel’s own voice, creates images and publishes on schedule. A built-in AI analyst reads the channel’s stats, answers questions right in the dashboard and suggests the best time to post. The first client has 9 posts published and about 4.5 hours of work saved.</p>
-            <p class="label stack">Founder, @publixai</p>
+            <p class="label stack">Founder, paused while looking for a CEO, @publixai</p>
           </div>
         </div>
       </article>
@@ -440,18 +454,27 @@ footer { padding: clamp(96px, 13vw, 220px) 0 24px; }
       <div class="job">
         <div class="label">Jun 2026 — now</div>
         <div>
+          <h3 class="big">KiGo</h3>
+          <div class="label org">Co-founder, hybrid</div>
+          <p>An app for finding a sports partner or opponent. Raised a $60,000 commitment from Imkon Ventures, United Ventures, Yoshlar Ventures and AloqaVentures.</p>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="label">Jun 2026 — now</div>
+        <div>
           <h3 class="big">Publix AI</h3>
-          <div class="label org">Founder, remote</div>
-          <p>An AI editorial team for Telegram channels that finds topics, writes posts, creates images and publishes on its own. First client live: 9 posts published, about 4.5 hours saved.</p>
+          <div class="label org">Founder, remote, paused</div>
+          <p>On hold while I look for a CEO to lead it. An AI editorial team for Telegram channels that finds topics, writes posts, creates images and publishes on its own. First client live: 9 posts published, about 4.5 hours saved.</p>
         </div>
       </div>
 
       <div class="job" data-images="images/hover/qrtifact-1.jpg,images/hover/qrtifact-5.jpg,images/hover/qrtifact-2.jpg,images/hover/qrtifact-6.jpg,images/hover/qrtifact-3.jpg,images/hover/qrtifact-7.jpg,images/hover/qrtifact-4.jpg">
-        <div class="label">Mar 2026 — Aug 2026</div>
+        <div class="label">Mar 2026 — now</div>
         <div>
           <h3 class="big">QRTifact</h3>
           <div class="label org">Founder, remote</div>
-          <p>Product launch, development and investor pitches. 1st place at the Inter-University Startup Competition.</p>
+          <p>My current product and main focus. Product launch, development and investor pitches. 1st place at the Inter-University Startup Competition.</p>
         </div>
       </div>
 
@@ -461,16 +484,16 @@ footer { padding: clamp(96px, 13vw, 220px) 0 24px; }
         <div>
           <h3 class="big">Gradly.uz</h3>
           <div class="label org">Founder, remote</div>
-          <p>B2B SaaS. Description coming soon.</p>
+          <p>B2B SaaS. Closed in February 2026.</p>
         </div>
       </div>
 
       <div class="job">
-        <div class="label">Apr 2025 — Apr 2026</div>
+        <div class="label">Apr 2025 — now</div>
         <div>
           <h3 class="big">Researcher.uz</h3>
           <div class="label org">Founder, remote</div>
-          <p>In 30 days: 2,670 visitors (+40%), 7,783 page views (+80%), bounce rate down to 52%.</p>
+          <p>Fully automated: the platform now runs and grows without day-to-day work. 6,700+ articles in 106 journal issues, 105,000+ views. In 30 days: 2,670 visitors (+40%), 7,783 page views (+80%), bounce rate down to 52%.</p>
         </div>
       </div>
 
@@ -485,20 +508,51 @@ footer { padding: clamp(96px, 13vw, 220px) 0 24px; }
 
     <section id="skills">
       <h2 class="big sec-title">Skills</h2>
-      <div class="skill"><div class="label">Frontend</div><p class="big">React, Next.js, Tailwind CSS, ShadCN UI, Zustand, Zod</p></div>
-      <div class="skill"><div class="label">Backend and data</div><p class="big">Supabase, PostgreSQL, Meilisearch, Redis, SQL</p></div>
-      <div class="skill"><div class="label">Infrastructure</div><p class="big">Git, Dokku, Cloudflare, Backblaze B2</p></div>
-      <div class="skill"><div class="label">Product</div><p class="big">Project management, product launches, SEO, investor pitches</p></div>
+      <div class="skill">
+        <div class="label">Frontend</div>
+        <ul class="stack-grid">
+          <li style="--brand: #3178C6"><span class="glyph"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M1.125 0C.502 0 0 .502 0 1.125v21.75C0 23.498.502 24 1.125 24h21.75c.623 0 1.125-.502 1.125-1.125V1.125C24 .502 23.498 0 22.875 0zm17.363 9.75c.612 0 1.154.037 1.627.111a6.38 6.38 0 0 1 1.306.34v2.458a3.95 3.95 0 0 0-.643-.361 5.093 5.093 0 0 0-.717-.26 5.453 5.453 0 0 0-1.426-.2c-.3 0-.573.028-.819.086a2.1 2.1 0 0 0-.623.242c-.17.104-.3.229-.393.374a.888.888 0 0 0-.14.49c0 .196.053.373.156.529.104.156.252.304.443.444s.423.276.696.41c.273.135.582.274.926.416.47.197.892.407 1.266.628.374.222.695.473.963.753.268.279.472.598.614.957.142.359.214.776.214 1.253 0 .657-.125 1.21-.373 1.656a3.033 3.033 0 0 1-1.012 1.085 4.38 4.38 0 0 1-1.487.596c-.566.12-1.163.18-1.79.18a9.916 9.916 0 0 1-1.84-.164 5.544 5.544 0 0 1-1.512-.493v-2.63a5.033 5.033 0 0 0 3.237 1.2c.333 0 .624-.03.872-.09.249-.06.456-.144.623-.25.166-.108.29-.234.373-.38a1.023 1.023 0 0 0-.074-1.089 2.12 2.12 0 0 0-.537-.5 5.597 5.597 0 0 0-.807-.444 27.72 27.72 0 0 0-1.007-.436c-.918-.383-1.602-.852-2.053-1.405-.45-.553-.676-1.222-.676-2.005 0-.614.123-1.141.369-1.582.246-.441.58-.804 1.004-1.089a4.494 4.494 0 0 1 1.47-.629 7.536 7.536 0 0 1 1.77-.201zm-15.113.188h9.563v2.166H9.506v9.646H6.789v-9.646H3.375z"/></svg></span><span class="label">TypeScript</span></li>
+          <li style="--brand: #61DAFB"><span class="glyph"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.23 12.004a2.236 2.236 0 0 1-2.235 2.236 2.236 2.236 0 0 1-2.236-2.236 2.236 2.236 0 0 1 2.235-2.236 2.236 2.236 0 0 1 2.236 2.236zm2.648-10.69c-1.346 0-3.107.96-4.888 2.622-1.78-1.653-3.542-2.602-4.887-2.602-.41 0-.783.093-1.106.278-1.375.793-1.683 3.264-.973 6.365C1.98 8.917 0 10.42 0 12.004c0 1.59 1.99 3.097 5.043 4.03-.704 3.113-.39 5.588.988 6.38.32.187.69.275 1.102.275 1.345 0 3.107-.96 4.888-2.624 1.78 1.654 3.542 2.603 4.887 2.603.41 0 .783-.09 1.106-.275 1.374-.792 1.683-3.263.973-6.365C22.02 15.096 24 13.59 24 12.004c0-1.59-1.99-3.097-5.043-4.032.704-3.11.39-5.587-.988-6.38-.318-.184-.688-.277-1.092-.278zm-.005 1.09v.006c.225 0 .406.044.558.127.666.382.955 1.835.73 3.704-.054.46-.142.945-.25 1.44-.96-.236-2.006-.417-3.107-.534-.66-.905-1.345-1.727-2.035-2.447 1.592-1.48 3.087-2.292 4.105-2.295zm-9.77.02c1.012 0 2.514.808 4.11 2.28-.686.72-1.37 1.537-2.02 2.442-1.107.117-2.154.298-3.113.538-.112-.49-.195-.964-.254-1.42-.23-1.868.054-3.32.714-3.707.19-.09.4-.127.563-.132zm4.882 3.05c.455.468.91.992 1.36 1.564-.44-.02-.89-.034-1.345-.034-.46 0-.915.01-1.36.034.44-.572.895-1.096 1.345-1.565zM12 8.1c.74 0 1.477.034 2.202.093.406.582.802 1.203 1.183 1.86.372.64.71 1.29 1.018 1.946-.308.655-.646 1.31-1.013 1.95-.38.66-.773 1.288-1.18 1.87-.728.063-1.466.098-2.21.098-.74 0-1.477-.035-2.202-.093-.406-.582-.802-1.204-1.183-1.86-.372-.64-.71-1.29-1.018-1.946.303-.657.646-1.313 1.013-1.954.38-.66.773-1.286 1.18-1.868.728-.064 1.466-.098 2.21-.098zm-3.635.254c-.24.377-.48.763-.704 1.16-.225.39-.435.782-.635 1.174-.265-.656-.49-1.31-.676-1.947.64-.15 1.315-.283 2.015-.386zm7.26 0c.695.103 1.365.23 2.006.387-.18.632-.405 1.282-.66 1.933-.2-.39-.41-.783-.64-1.174-.225-.392-.465-.774-.705-1.146zm3.063.675c.484.15.944.317 1.375.498 1.732.74 2.852 1.708 2.852 2.476-.005.768-1.125 1.74-2.857 2.475-.42.18-.88.342-1.355.493-.28-.958-.646-1.956-1.1-2.98.45-1.017.81-2.01 1.085-2.964zm-13.395.004c.278.96.645 1.957 1.1 2.98-.45 1.017-.812 2.01-1.086 2.964-.484-.15-.944-.318-1.37-.5-1.732-.737-2.852-1.706-2.852-2.474 0-.768 1.12-1.742 2.852-2.476.42-.18.88-.342 1.356-.494zm11.678 4.28c.265.657.49 1.312.676 1.948-.64.157-1.316.29-2.016.39.24-.375.48-.762.705-1.158.225-.39.435-.788.636-1.18zm-9.945.02c.2.392.41.783.64 1.175.23.39.465.772.705 1.143-.695-.102-1.365-.23-2.006-.386.18-.63.406-1.282.66-1.933zM17.92 16.32c.112.493.2.968.254 1.423.23 1.868-.054 3.32-.714 3.708-.147.09-.338.128-.563.128-1.012 0-2.514-.807-4.11-2.28.686-.72 1.37-1.536 2.02-2.44 1.107-.118 2.154-.3 3.113-.54zm-11.83.01c.96.234 2.006.415 3.107.532.66.905 1.345 1.727 2.035 2.446-1.595 1.483-3.092 2.295-4.11 2.295-.22-.005-.406-.05-.553-.132-.666-.38-.955-1.834-.73-3.703.054-.46.142-.944.25-1.438zm4.56.64c.44.02.89.034 1.345.034.46 0 .915-.01 1.36-.034-.44.572-.895 1.095-1.345 1.565-.455-.47-.91-.993-1.36-1.565z"/></svg></span><span class="label">React</span></li>
+          <li><span class="glyph"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.665 21.978C16.758 23.255 14.465 24 12 24 5.377 24 0 18.623 0 12S5.377 0 12 0s12 5.377 12 12c0 3.583-1.574 6.801-4.067 9.001L9.219 7.2H7.2v9.596h1.615V9.251l9.85 12.727Zm-3.332-8.533 1.6 2.061V7.2h-1.6v6.245Z"/></svg></span><span class="label">Next.js</span></li>
+          <li style="--brand: #06B6D4"><span class="glyph"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.001,4.8c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 C13.666,10.618,15.027,12,18.001,12c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C16.337,6.182,14.976,4.8,12.001,4.8z M6.001,12c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 c1.177,1.194,2.538,2.576,5.512,2.576c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C10.337,13.382,8.976,12,6.001,12z"/></svg></span><span class="label">Tailwind CSS</span></li>
+          <li><span class="glyph"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22.219 11.784 11.784 22.219c-.407.407-.407 1.068 0 1.476.407.407 1.068.407 1.476 0L23.695 13.26c.407-.408.407-1.069 0-1.476-.408-.407-1.069-.407-1.476 0ZM20.132.305.305 20.132c-.407.407-.407 1.068 0 1.476.408.407 1.069.407 1.476 0L21.608 1.781c.407-.407.407-1.068 0-1.476-.408-.407-1.069-.407-1.476 0Z"/></svg></span><span class="label">ShadCN UI</span></li>
+          <li style="--brand: #408AFF"><span class="glyph"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.584 3.582a2.247 2.247 0 0 1 2.112-1.479h14.617c.948 0 1.794.595 2.115 1.487l2.44 6.777a2.248 2.248 0 0 1-.624 2.443l-9.61 8.52a2.247 2.247 0 0 1-2.963.018L.776 12.773a2.248 2.248 0 0 1-.64-2.467Zm12.038 4.887-9.11 5.537 5.74 5.007c.456.399 1.139.396 1.593-.006l5.643-5.001H14.4l6.239-3.957c.488-.328.69-.947.491-1.5l-1.24-3.446a1.535 1.535 0 0 0-1.456-1.015H5.545a1.535 1.535 0 0 0-1.431 1.01l-1.228 3.37z"/></svg></span><span class="label">Zod</span></li>
+          <li><span class="glyph glyph-img"><img src="images/logos/zustand.png" alt="" width="160" height="160"></span><span class="label">Zustand</span></li>
+        </ul>
+      </div>
+      <div class="skill">
+        <div class="label">Backend and data</div>
+        <ul class="stack-grid">
+          <li style="--brand: #3776AB"><span class="glyph"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.25.18l.9.2.73.26.59.3.45.32.34.34.25.34.16.33.1.3.04.26.02.2-.01.13V8.5l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H8.77l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v3.06H3.17l-.21-.03-.28-.07-.32-.12-.35-.18-.36-.26-.36-.36-.35-.46-.32-.59-.28-.73-.21-.88-.14-1.05-.05-1.23.06-1.22.16-1.04.24-.87.32-.71.36-.57.4-.44.42-.33.42-.24.4-.16.36-.1.32-.05.24-.01h.16l.06.01h8.16v-.83H6.18l-.01-2.75-.02-.37.05-.34.11-.31.17-.28.25-.26.31-.23.38-.2.44-.18.51-.15.58-.12.64-.1.71-.06.77-.04.84-.02 1.27.05zm-6.3 1.98l-.23.33-.08.41.08.41.23.34.33.22.41.09.41-.09.33-.22.23-.34.08-.41-.08-.41-.23-.33-.33-.22-.41-.09-.41.09zm13.09 3.95l.28.06.32.12.35.18.36.27.36.35.35.47.32.59.28.73.21.88.14 1.04.05 1.23-.06 1.23-.16 1.04-.24.86-.32.71-.36.57-.4.45-.42.33-.42.24-.4.16-.36.09-.32.05-.24.02-.16-.01h-8.22v.82h5.84l.01 2.76.02.36-.05.34-.11.31-.17.29-.25.25-.31.24-.38.2-.44.17-.51.15-.58.13-.64.09-.71.07-.77.04-.84.01-1.27-.04-1.07-.14-.9-.2-.73-.25-.59-.3-.45-.33-.34-.34-.25-.34-.16-.33-.1-.3-.04-.25-.02-.2.01-.13v-5.34l.05-.64.13-.54.21-.46.26-.38.3-.32.33-.24.35-.2.35-.14.33-.1.3-.06.26-.04.21-.02.13-.01h5.84l.69-.05.59-.14.5-.21.41-.28.33-.32.27-.35.2-.36.15-.36.1-.35.07-.32.04-.28.02-.21V6.07h2.09l.14.01zm-6.47 14.25l-.23.33-.08.41.08.41.23.33.33.23.41.08.41-.08.33-.23.23-.33.08-.41-.08-.41-.23-.33-.33-.23-.41-.08-.41.08z"/></svg></span><span class="label">Python</span></li>
+          <li style="--brand: #3FCF8E"><span class="glyph"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.9 1.036c-.015-.986-1.26-1.41-1.874-.637L.764 12.05C-.33 13.427.65 15.455 2.409 15.455h9.579l.113 7.51c.014.985 1.259 1.408 1.873.636l9.262-11.653c1.093-1.375.113-3.403-1.645-3.403h-9.642z"/></svg></span><span class="label">Supabase</span></li>
+          <li style="--brand: #4169E1"><span class="glyph"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5594 14.7228a.5269.5269 0 0 0-.0563-.1191c-.139-.2632-.4768-.3418-1.0074-.2321-1.6533.3411-2.2935.1312-2.5256-.0191 1.342-2.0482 2.445-4.522 3.0411-6.8297.2714-1.0507.7982-3.5237.1222-4.7316a1.5641 1.5641 0 0 0-.1509-.235C21.6931.9086 19.8007.0248 17.5099.0005c-1.4947-.0158-2.7705.3461-3.1161.4794a9.449 9.449 0 0 0-.5159-.0816 8.044 8.044 0 0 0-1.3114-.1278c-1.1822-.0184-2.2038.2642-3.0498.8406-.8573-.3211-4.7888-1.645-7.2219.0788C.9359 2.1526.3086 3.8733.4302 6.3043c.0409.818.5069 3.334 1.2423 5.7436.4598 1.5065.9387 2.7019 1.4334 3.582.553.9942 1.1259 1.5933 1.7143 1.7895.4474.1491 1.1327.1441 1.8581-.7279.8012-.9635 1.5903-1.8258 1.9446-2.2069.4351.2355.9064.3625 1.39.3772a.0569.0569 0 0 0 .0004.0041 11.0312 11.0312 0 0 0-.2472.3054c-.3389.4302-.4094.5197-1.5002.7443-.3102.064-1.1344.2339-1.1464.8115-.0025.1224.0329.2309.0919.3268.2269.4231.9216.6097 1.015.6331 1.3345.3335 2.5044.092 3.3714-.6787-.017 2.231.0775 4.4174.3454 5.0874.2212.5529.7618 1.9045 2.4692 1.9043.2505 0 .5263-.0291.8296-.0941 1.7819-.3821 2.5557-1.1696 2.855-2.9059.1503-.8707.4016-2.8753.5388-4.1012.0169-.0703.0357-.1207.057-.1362.0007-.0005.0697-.0471.4272.0307a.3673.3673 0 0 0 .0443.0068l.2539.0223.0149.001c.8468.0384 1.9114-.1426 2.5312-.4308.6438-.2988 1.8057-1.0323 1.5951-1.6698zM2.371 11.8765c-.7435-2.4358-1.1779-4.8851-1.2123-5.5719-.1086-2.1714.4171-3.6829 1.5623-4.4927 1.8367-1.2986 4.8398-.5408 6.108-.13-.0032.0032-.0066.0061-.0098.0094-2.0238 2.044-1.9758 5.536-1.9708 5.7495-.0002.0823.0066.1989.0162.3593.0348.5873.0996 1.6804-.0735 2.9184-.1609 1.1504.1937 2.2764.9728 3.0892.0806.0841.1648.1631.2518.2374-.3468.3714-1.1004 1.1926-1.9025 2.1576-.5677.6825-.9597.5517-1.0886.5087-.3919-.1307-.813-.5871-1.2381-1.3223-.4796-.839-.9635-2.0317-1.4155-3.5126zm6.0072 5.0871c-.1711-.0428-.3271-.1132-.4322-.1772.0889-.0394.2374-.0902.4833-.1409 1.2833-.2641 1.4815-.4506 1.9143-1.0002.0992-.126.2116-.2687.3673-.4426a.3549.3549 0 0 0 .0737-.1298c.1708-.1513.2724-.1099.4369-.0417.156.0646.3078.26.3695.4752.0291.1016.0619.2945-.0452.4444-.9043 1.2658-2.2216 1.2494-3.1676 1.0128zm2.094-3.988-.0525.141c-.133.3566-.2567.6881-.3334 1.003-.6674-.0021-1.3168-.2872-1.8105-.8024-.6279-.6551-.9131-1.5664-.7825-2.5004.1828-1.3079.1153-2.4468.079-3.0586-.005-.0857-.0095-.1607-.0122-.2199.2957-.2621 1.6659-.9962 2.6429-.7724.4459.1022.7176.4057.8305.928.5846 2.7038.0774 3.8307-.3302 4.7363-.084.1866-.1633.3629-.2311.5454zm7.3637 4.5725c-.0169.1768-.0358.376-.0618.5959l-.146.4383a.3547.3547 0 0 0-.0182.1077c-.0059.4747-.054.6489-.115.8693-.0634.2292-.1353.4891-.1794 1.0575-.11 1.4143-.8782 2.2267-2.4172 2.5565-1.5155.3251-1.7843-.4968-2.0212-1.2217a6.5824 6.5824 0 0 0-.0769-.2266c-.2154-.5858-.1911-1.4119-.1574-2.5551.0165-.5612-.0249-1.9013-.3302-2.6462.0044-.2932.0106-.5909.019-.8918a.3529.3529 0 0 0-.0153-.1126 1.4927 1.4927 0 0 0-.0439-.208c-.1226-.4283-.4213-.7866-.7797-.9351-.1424-.059-.4038-.1672-.7178-.0869.067-.276.1831-.5875.309-.9249l.0529-.142c.0595-.16.134-.3257.213-.5012.4265-.9476 1.0106-2.2453.3766-5.1772-.2374-1.0981-1.0304-1.6343-2.2324-1.5098-.7207.0746-1.3799.3654-1.7088.5321a5.6716 5.6716 0 0 0-.1958.1041c.0918-1.1064.4386-3.1741 1.7357-4.4823a4.0306 4.0306 0 0 1 .3033-.276.3532.3532 0 0 0 .1447-.0644c.7524-.5706 1.6945-.8506 2.802-.8325.4091.0067.8017.0339 1.1742.081 1.939.3544 3.2439 1.4468 4.0359 2.3827.8143.9623 1.2552 1.9315 1.4312 2.4543-1.3232-.1346-2.2234.1268-2.6797.779-.9926 1.4189.543 4.1729 1.2811 5.4964.1353.2426.2522.4522.2889.5413.2403.5825.5515.9713.7787 1.2552.0696.087.1372.1714.1885.245-.4008.1155-1.1208.3825-1.0552 1.717-.0123.1563-.0423.4469-.0834.8148-.0461.2077-.0702.4603-.0994.7662zm.8905-1.6211c-.0405-.8316.2691-.9185.5967-1.0105a2.8566 2.8566 0 0 0 .135-.0406 1.202 1.202 0 0 0 .1342.103c.5703.3765 1.5823.4213 3.0068.1344-.2016.1769-.5189.3994-.9533.6011-.4098.1903-1.0957.333-1.7473.3636-.7197.0336-1.0859-.0807-1.1721-.151zm.5695-9.2712c-.0059.3508-.0542.6692-.1054 1.0017-.055.3576-.112.7274-.1264 1.1762-.0142.4368.0404.8909.0932 1.3301.1066.887.216 1.8003-.2075 2.7014a3.5272 3.5272 0 0 1-.1876-.3856c-.0527-.1276-.1669-.3326-.3251-.6162-.6156-1.1041-2.0574-3.6896-1.3193-4.7446.3795-.5427 1.3408-.5661 2.1781-.463zm.2284 7.0137a12.3762 12.3762 0 0 0-.0853-.1074l-.0355-.0444c.7262-1.1995.5842-2.3862.4578-3.4385-.0519-.4318-.1009-.8396-.0885-1.2226.0129-.4061.0666-.7543.1185-1.0911.0639-.415.1288-.8443.1109-1.3505.0134-.0531.0188-.1158.0118-.1902-.0457-.4855-.5999-1.938-1.7294-3.253-.6076-.7073-1.4896-1.4972-2.6889-2.0395.5251-.1066 1.2328-.2035 2.0244-.1859 2.0515.0456 3.6746.8135 4.8242 2.2824a.908.908 0 0 1 .0667.1002c.7231 1.3556-.2762 6.2751-2.9867 10.5405zm-8.8166-6.1162c-.025.1794-.3089.4225-.6211.4225a.5821.5821 0 0 1-.0809-.0056c-.1873-.026-.3765-.144-.5059-.3156-.0458-.0605-.1203-.178-.1055-.2844.0055-.0401.0261-.0985.0925-.1488.1182-.0894.3518-.1226.6096-.0867.3163.0441.6426.1938.6113.4186zm7.9305-.4114c.0111.0792-.049.201-.1531.3102-.0683.0717-.212.1961-.4079.2232a.5456.5456 0 0 1-.075.0052c-.2935 0-.5414-.2344-.5607-.3717-.024-.1765.2641-.3106.5611-.352.297-.0414.6111.0088.6356.1851z"/></svg></span><span class="label">PostgreSQL</span></li>
+          <li style="--brand: #FF5CAA"><span class="glyph"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6.505 18.998 4.434-11.345a4.168 4.168 0 0 1 3.882-2.651h2.674l-4.434 11.345a4.169 4.169 0 0 1-3.883 2.651H6.505Zm6.505 0 4.434-11.345a4.169 4.169 0 0 1 3.883-2.651H24l-4.434 11.345a4.168 4.168 0 0 1-3.882 2.651H13.01Zm-13.01 0L4.434 7.653a4.168 4.168 0 0 1 3.882-2.651h2.674L6.556 16.347a4.169 4.169 0 0 1-3.883 2.651H0Z"/></svg></span><span class="label">Meilisearch</span></li>
+          <li style="--brand: #FF4438"><span class="glyph"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22.71 13.145c-1.66 2.092-3.452 4.483-7.038 4.483-3.203 0-4.397-2.825-4.48-5.12.701 1.484 2.073 2.685 4.214 2.63 4.117-.133 6.94-3.852 6.94-7.239 0-4.05-3.022-6.972-8.268-6.972-3.752 0-8.4 1.428-11.455 3.685C2.59 6.937 3.885 9.958 4.35 9.626c2.648-1.904 4.748-3.13 6.784-3.744C8.12 9.244.886 17.05 0 18.425c.1 1.261 1.66 4.648 2.424 4.648.232 0 .431-.133.664-.365a100.49 100.49 0 0 0 5.54-6.765c.222 3.104 1.748 6.898 6.014 6.898 3.819 0 7.604-2.756 9.33-8.965.2-.764-.73-1.361-1.261-.73zm-4.349-5.013c0 1.959-1.926 2.922-3.685 2.922-.941 0-1.664-.247-2.235-.568 1.051-1.592 2.092-3.225 3.21-4.973 1.972.334 2.71 1.43 2.71 2.619z"/></svg></span><span class="label">Redis</span></li>
+          <li><span class="glyph glyph-text" aria-hidden="true">SQL</span><span class="label">SQL</span></li>
+        </ul>
+      </div>
+      <div class="skill">
+        <div class="label">Infrastructure</div>
+        <ul class="stack-grid">
+          <li style="--brand: #2496ED"><span class="glyph"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.983 11.078h2.119a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.119a.185.185 0 00-.185.185v1.888c0 .102.083.185.185.185m-2.954-5.43h2.118a.186.186 0 00.186-.186V3.574a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185m0 2.716h2.118a.187.187 0 00.186-.186V6.29a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.887c0 .102.082.185.185.186m-2.93 0h2.12a.186.186 0 00.184-.186V6.29a.185.185 0 00-.185-.185H8.1a.185.185 0 00-.185.185v1.887c0 .102.083.185.185.186m-2.964 0h2.119a.186.186 0 00.185-.186V6.29a.185.185 0 00-.185-.185H5.136a.186.186 0 00-.186.185v1.887c0 .102.084.185.186.186m5.893 2.715h2.118a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185m-2.93 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186h-2.12a.185.185 0 00-.184.185v1.888c0 .102.083.185.185.185m-2.964 0h2.119a.185.185 0 00.185-.185V9.006a.185.185 0 00-.184-.186h-2.12a.186.186 0 00-.186.186v1.887c0 .102.084.185.186.185m-2.92 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186h-2.12a.185.185 0 00-.184.185v1.888c0 .102.082.185.185.185M23.763 9.89c-.065-.051-.672-.51-1.954-.51-.338.001-.676.03-1.01.087-.248-1.7-1.653-2.53-1.716-2.566l-.344-.199-.226.327c-.284.438-.49.922-.612 1.43-.23.97-.09 1.882.403 2.661-.595.332-1.55.413-1.744.42H.751a.751.751 0 00-.75.748 11.376 11.376 0 00.692 4.062c.545 1.428 1.355 2.48 2.41 3.124 1.18.723 3.1 1.137 5.275 1.137.983.003 1.963-.086 2.93-.266a12.248 12.248 0 003.823-1.389c.98-.567 1.86-1.288 2.61-2.136 1.252-1.418 1.998-2.997 2.553-4.4h.221c1.372 0 2.215-.549 2.68-1.009.309-.293.55-.65.707-1.046l.098-.288Z"/></svg></span><span class="label">Docker</span></li>
+          <li style="--brand: #F03C2E"><span class="glyph"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.09 23.549a1.54 1.54 0 0 1-2.18 0L.451 13.089a1.54 1.54 0 0 1 0-2.179l7.191-7.19 2.733 2.733a1.85 1.85 0 0 0 .964 2.326v6.66a1.849 1.849 0 1 0 1.54 0V8.957l2.508 2.508a1.85 1.85 0 1 0 1.09-1.09l-2.634-2.634a1.85 1.85 0 0 0-2.378-2.377L8.73 2.63 10.91.451a1.54 1.54 0 0 1 2.179 0l10.459 10.46a1.54 1.54 0 0 1 0 2.179z"/></svg></span><span class="label">Git</span></li>
+          <li style="--brand: #F38020"><span class="glyph"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.5088 16.8447c.1475-.5068.0908-.9707-.1553-1.3154-.2246-.3164-.6045-.499-1.0615-.5205l-8.6592-.1123a.1559.1559 0 0 1-.1333-.0713c-.0283-.042-.0351-.0986-.021-.1553.0278-.084.1123-.1484.2036-.1562l8.7359-.1123c1.0351-.0489 2.1601-.8868 2.5537-1.9136l.499-1.3013c.0215-.0561.0293-.1128.0147-.168-.5625-2.5463-2.835-4.4453-5.5499-4.4453-2.5039 0-4.6284 1.6177-5.3876 3.8614-.4927-.3658-1.1187-.5625-1.794-.499-1.2026.119-2.1665 1.083-2.2861 2.2856-.0283.31-.0069.6128.0635.894C1.5683 13.171 0 14.7754 0 16.752c0 .1748.0142.3515.0352.5273.0141.083.0844.1475.1689.1475h15.9814c.0909 0 .1758-.0645.2032-.1553l.12-.4268zm2.7568-5.5634c-.0771 0-.1611 0-.2383.0112-.0566 0-.1054.0415-.127.0976l-.3378 1.1744c-.1475.5068-.0918.9707.1543 1.3164.2256.3164.6055.498 1.0625.5195l1.8437.1133c.0557 0 .1055.0263.1329.0703.0283.043.0351.1074.0214.1562-.0283.084-.1132.1485-.204.1553l-1.921.1123c-1.041.0488-2.1582.8867-2.5527 1.914l-.1406.3585c-.0283.0713.0215.1416.0986.1416h6.5977c.0771 0 .1474-.0489.169-.126.1122-.4082.1757-.837.1757-1.2803 0-2.6025-2.125-4.727-4.7344-4.727"/></svg></span><span class="label">Cloudflare</span></li>
+          <li style="--brand: #E21E29"><span class="glyph"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.3108.0003c.6527 1.3502 1.5666 4.0812-1.3887 7.1738-1.8096 1.8796-3.078 3.8487-2.3496 6.0644.3642 1.1037 1.1864 2.5079 2.8867 2.7852.6107.1008 1.3425-.0006 1.7403-.1406 2.4538-.8544 2.098-3.4138 1.5546-5.0469-.07-.2129-.1915-.7333-.2363-.9238-.3726-1.6023.776-2.6562 1.129-3.8047.028-.0925.0534-.1819.0702-.2715.042-.21.067-.423.0781-.6387 0-1.8264-.9882-2.6303-1.7754-3.5996C10.1794.5643 9.3107.0003 9.3107.0003Zm6.2754 6.0175s-.709.3366-1.2188.8829c-.4454.4818-.8635.8789-1.2949 1.8593-.028.14-.0518.2863-.0742.4375-.2325 1.6416 1.1473 3.1446.7187 5.1895-.112.535-.3554.7123-.7812 1.6367-.5098 1.1065-.383 2.588.3594 3.5293.6723.8488 1.879 1.2321 3.0527.9492 2.1065-.5042 3.0646-2.2822 2.8965-4.2851-.1317-1.58-.8154-2.7536-2.754-4.961-.9607-1.0925-1.6072-2.409-1.5624-3.4062.1373-1.2074.6582-1.832.6582-1.832zM4.8928 15.1936c-.0222.0145-.0439.0614-.0586.1602a.0469.0469 0 0 1-.0059.0195v.01c-.1148.5406-.1649 1.823.1153 2.9687.353 1.4427 1.4175 3.902 4.412 5.129 2.5184 1.0336 5.718.5411 7.8497-1.627.5294-.5435.408-.4897-.4883-.2012v-.002c-1.1121.3558-3.5182.5463-4.7676-1-1.5239-1.8852-.4302-3.3633-1.3574-3.1504-3.6164.8348-5.2667-1.4657-5.5469-2.1016-.0023-.002-.0857-.2487-.1523-.205z"/></svg></span><span class="label">Backblaze B2</span></li>
+          <li><span class="glyph glyph-text" aria-hidden="true">D</span><span class="label">Dokku</span></li>
+        </ul>
+      </div>
+      <div class="skill"><div class="label">Product</div><p class="big">Product management, project management, product launches, SEO, investor pitches</p></div>
       <div class="skill"><div class="label">Languages</div><p class="big">Russian, English, Uzbek, Tajik</p></div>
     </section>
 
     <section id="recognition">
       <h2 class="big sec-title">Recognition</h2>
       <ul class="ach">
+        <li><span class="label">Oct 2026</span><span class="big">Researcher.uz: 6,700+ articles published, 105,000+ views</span></li>
         <li><span class="label">Aug 2026</span><span class="big">KiGo: $60,000 commitment from four venture funds</span></li>
         <li><span class="label">Jul 2026</span><span class="big">QRTifact: 1st place at the Inter-University Startup Competition, 20M UZS grant</span></li>
-        <li><span class="label">Apr 2026</span><span class="big">QRTifact: presented at Invest Day Bukhara</span></li>
-        <li><span class="label">2025–2026</span><span class="big">Researcher.uz: journals passed 150,000 views</span></li>
+        <li><span class="label">Apr 2026</span><span class="big">QRTifact: one of 10 startups selected to pitch at Invest Day Bukhara, 300+ participants. <a href="https://gov.uz/uz/buxoro/news/view/153840" target="_blank" rel="noopener">Source: gov.uz</a></span></li>
+        <li><span class="label">Apr 2026</span><span class="big">Featured by Bucheon University in Tashkent as the founder of Researcher.uz. <a href="https://bucheon.uz/uz/announcements/muvaffaqiyat-kodi-puchon-universitetida/" target="_blank" rel="noopener">Source: bucheon.uz</a></span></li>
       </ul>
     </section>
 
@@ -712,12 +766,39 @@ footer { padding: clamp(96px, 13vw, 220px) 0 24px; }
     });
   }
 
+  // about: the whole photo drifts opposite to the cursor (cursor up -> photo down, cursor left -> photo right), easing back when it leaves
+  var about = document.querySelector('#about');
+  var portrait = document.querySelector('.portrait');
+  if (about && portrait && window.matchMedia('(hover: hover) and (pointer: fine)').matches &&
+      !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    var frame = portrait.parentElement;
+    var tx = 0, ty = 0, cx = 0, cy = 0, driftRaf = null;
+    function drift() {
+      cx += (tx - cx) * 0.035;  // low factor = the photo trails the cursor softly
+      cy += (ty - cy) * 0.035;
+      frame.style.setProperty('--px', cx.toFixed(2) + 'px');
+      frame.style.setProperty('--py', cy.toFixed(2) + 'px');
+      driftRaf = (Math.abs(tx - cx) > .05 || Math.abs(ty - cy) > .05) ? requestAnimationFrame(drift) : null;
+    }
+    function kick() { if (!driftRaf) driftRaf = requestAnimationFrame(drift); }
+    about.addEventListener('mousemove', function (e) {
+      var f = frame.getBoundingClientRect(), a = about.getBoundingClientRect();
+      var max = f.width * 0.09;   // how far the photo may travel, relative to its width
+      var dx = (e.clientX - (f.left + f.width / 2)) / (a.width / 2);
+      var dy = (e.clientY - (f.top + f.height / 2)) / (a.height / 2);
+      tx = -Math.max(-1, Math.min(1, dx)) * max;
+      ty = -Math.max(-1, Math.min(1, dy)) * max;
+      kick();
+    });
+    about.addEventListener('mouseleave', function () { tx = 0; ty = 0; kick(); });
+  }
+
   // numbers count up from zero the first time the block scrolls into view
   var counters = document.querySelectorAll('.stat .n[data-to]');
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (counters.length && 'IntersectionObserver' in window && !reduceMotion) {
     var DURATION = 1400;
-    function show(el, v) { el.textContent = el.dataset.prefix + v + el.dataset.suffix; }
+    function show(el, v) { el.textContent = el.dataset.prefix + v.toLocaleString('en-US') + el.dataset.suffix; }
     function countUp(el) {
       var to = +el.dataset.to, start = null;
       function step(ts) {
