@@ -647,13 +647,14 @@ footer { padding: clamp(96px, 13vw, 220px) 0 24px; }
   window.__updatePageColors = updatePageColors;
 
   // work: forced one-project-per-gesture scrolling. Inside the Work stack every wheel/key/swipe moves exactly
-  // one panel; extra input during the animation, and trackpad momentum after it, is swallowed
+  // one panel. Input during the animation is ignored; after it, the trackpad's momentum tail is swallowed, but a
+  // fresh swipe is recognised straight away (momentum only ever fades, a new swipe makes the delta jump up again)
   var panels = document.querySelectorAll('.proj');
   var workTitle = document.querySelector('#work .sec-title');
   if (panels.length && workTitle) {
     var STEP_MS = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 1 : 900;
-    var QUIET_MS = 220;   // input must stay quiet this long after a step before the next one is accepted
-    var locked = false, lastInput = 0;
+    var QUIET_MS = 180;   // this much silence also ends the momentum tail
+    var animating = false, inTail = false, lastInput = 0, lastAbs = 0;
 
     // panels are sticky, so their live rects lie; each panel's resting position is the title's bottom plus i screens
     function stops() {
@@ -671,24 +672,20 @@ footer { padding: clamp(96px, 13vw, 220px) 0 24px; }
     }
     function ease(t) { return t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; }
     function animateTo(target) {
-      locked = true;
+      animating = true; inTail = false;
       var from = window.scrollY, start = null;
       function frame(ts) {
         if (start === null) start = ts;
         var t = Math.min((ts - start) / STEP_MS, 1);
         window.scrollTo({ top: from + (target - from) * ease(t), behavior: 'instant' });
         if (t < 1) return requestAnimationFrame(frame);
-        (function waitQuiet() {
-          if (Date.now() - lastInput >= QUIET_MS) locked = false;
-          else setTimeout(waitQuiet, 50);
-        })();
+        animating = false;
+        inTail = true;  // whatever wheel events still arrive now are most likely momentum
       }
       requestAnimationFrame(frame);
     }
-    // returns true when the input was handled here and the browser must not scroll by itself
+    // try to start a step; true when this input belongs to the stack and the browser must not scroll by itself
     function step(dir) {
-      lastInput = Date.now();
-      if (locked) return true;
       var t = targetFor(dir);
       if (t === null) return false;
       animateTo(t);
@@ -696,17 +693,27 @@ footer { padding: clamp(96px, 13vw, 220px) 0 24px; }
     }
 
     window.addEventListener('wheel', function (e) {
-      if (Math.abs(e.deltaY) < 1) return;
-      var dir = e.deltaY > 0 ? 1 : -1;
-      if (locked) { lastInput = Date.now(); e.preventDefault(); return; }
-      if (step(dir)) e.preventDefault();
+      var abs = Math.abs(e.deltaY);
+      if (abs < 1) return;
+      var now = Date.now();
+      var quiet = now - lastInput >= QUIET_MS;
+      var risingAgain = abs > lastAbs * 1.5 && abs > 10;  // a new swipe, not the fading tail
+      lastInput = now; lastAbs = abs;
+      if (animating) { e.preventDefault(); return; }
+      if (inTail) {
+        if (!quiet && !risingAgain) { e.preventDefault(); return; }
+        inTail = false;
+      }
+      if (step(e.deltaY > 0 ? 1 : -1)) e.preventDefault();
     }, { passive: false });
 
     window.addEventListener('keydown', function (e) {
       if (e.target.closest && e.target.closest('input, textarea, button, [contenteditable]')) return;
       var down = ['ArrowDown', 'PageDown', ' '], up = ['ArrowUp', 'PageUp'];
       var dir = down.indexOf(e.key) !== -1 ? (e.shiftKey && e.key === ' ' ? -1 : 1) : up.indexOf(e.key) !== -1 ? -1 : 0;
-      if (dir && step(dir)) e.preventDefault();
+      if (!dir) return;
+      if (animating) { if (targetFor(dir) !== null) e.preventDefault(); return; }
+      if (step(dir)) e.preventDefault();
     });
 
     var touchY = null, touchUsed = false;
@@ -714,7 +721,7 @@ footer { padding: clamp(96px, 13vw, 220px) 0 24px; }
     window.addEventListener('touchmove', function (e) {
       if (touchY === null) return;
       var dy = touchY - e.touches[0].clientY;
-      if (locked || touchUsed) { e.preventDefault(); return; }
+      if (animating || touchUsed) { e.preventDefault(); return; }
       if (Math.abs(dy) < 12) return;
       if (step(dy > 0 ? 1 : -1)) { touchUsed = true; e.preventDefault(); }
     }, { passive: false });
