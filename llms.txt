@@ -26,6 +26,7 @@ He is not the same person as other people named Yadgarov or Fayzullayev who appe
 - Frontend: TypeScript, React, Next.js, Tailwind CSS, ShadCN UI, Zod, Zustand
 - Backend and data: Python, Supabase, PostgreSQL, Meilisearch, Redis, SQL
 - Infrastructure: Docker, Git, Cloudflare, Backblaze B2, Dokku
+- AI and design: Claude Code, ChatGPT, Figma
 - Product: product management, project management, product launches, SEO, investor pitches
 - Languages: Russian, English, Uzbek, Tajik
 
